@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Cool article test"
-author: Mark
+author: mark
 categories: [ Jekyll, tutorial ]
 image: assets/images/1.jpg
 ---
