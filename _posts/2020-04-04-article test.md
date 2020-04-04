@@ -1,3 +1,11 @@
+---
+layout: post
+title:  "Cool article test"
+author: Mark
+categories: [ Jekyll, tutorial ]
+image: assets/images/1.jpg
+---
+
 Blah blah blah
 
 ###### asdasd blah blah
