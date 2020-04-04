@@ -5,3 +5,4 @@ _site
 *~
 .jekyll-cache
 .github
+_config_dev.yml
