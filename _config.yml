@@ -4,7 +4,7 @@ title: "title"
 description: "Mike cool website"
 logo: 'assets/images/logo.png'
 favicon: 'assets/images/logo.png'
-baseurl: /
+baseurl: {{ site.baseurl }}/
 google_analytics: ''
 disqus: 'demowebsite'
 mailchimp-list: ''
