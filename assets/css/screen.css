@@ -1,14 +1,14 @@
-/* 
-Template Name: Mediumish 
-Copyright: Sal, WowThemes.net, https://www.wowthemes.net 
-License: https://www.wowthemes.net/freebies-license/ 
+/*
+Template Name: Mediumish
+Copyright: Sal, WowThemes.net, https://www.wowthemes.net
+License: https://www.wowthemes.net/freebies-license/
 */
 @media screen and (min-width:1500px) {
     html { font-size:18px; } /* Increase the font size on higher resolutions */
-    .container {max-width:80%;}
+    .container {max-width:60%;}
 }
 .mainheading {
-    padding: 1rem 0rem;
+    padding: 1.5rem 0rem;
 }
 
 a {
@@ -39,9 +39,39 @@ pre {
 }
 
 .mediumnavigation {
-    background: rgba(255, 255, 255, .97);
+    background: rgba(0, 0, 0, 1);
     box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .15);
     transition: top 0.2s ease-in-out;
+}
+
+.navbar-brand-local {
+    font-family: "Suez one";
+    font-size: 4rem;
+}
+
+.navbarbtn-local {
+    border: none;
+    color: white;
+    padding: 0rem 0rem;
+    font-family: "Suez one";
+    font-size: 1.5rem;
+}
+
+.red-local {
+    background-color: rgb(212,0,5);
+}
+
+.pink-local {
+    background-color: rgb(223,0,85)
+}
+
+.blue-local {
+    background-color: rgb(0,50,223);
+}
+
+#rotate-ccw-local {
+    width: 1rem;
+    transform: rotate(270deg);
 }
 
 .main-content {
@@ -50,7 +80,7 @@ pre {
 
 .site-content {
     min-height: 60vh;
-    padding-top: 1.5rem;
+    padding-top: 4rem;
     margin-top: 57px;
     transition: all 0.4s;
 }
@@ -99,8 +129,8 @@ section.recent-posts {
 
 @media (min-width:992px) {
     .navbar-expand-lg .navbar-nav .nav-link {
-        padding-right: 0.8rem;
-        padding-left: 0.8rem;
+        padding-right: 6rem;
+        padding-left: 0.5rem;
     }
 }
 
