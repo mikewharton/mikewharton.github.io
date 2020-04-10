@@ -416,7 +416,7 @@ blockquote {
 }
 
 .sticky-top-offset {
-    top: 100px;
+    top: 9rem;
 }
 
 @media (min-width:1024px) {
