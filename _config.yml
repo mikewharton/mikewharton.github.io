@@ -73,7 +73,7 @@ kramdown:
       line_numbers: true
 
 sass:
-  sass_dir: /assets/sass/
+  sass_dir: _sass
 
 # Adsense (change to "enabled" to activate, also your client id and ad slot. Create a new ad unit from your Adsense account to get the slot.)
 adsense: "disabled"
