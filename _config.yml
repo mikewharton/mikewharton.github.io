@@ -1,5 +1,5 @@
 # Site
-name: "Scientist Journal"
+name: "work in progress"
 title: "title"
 description: "Mike cool website"
 logo: 'assets/images/logo.png'
@@ -71,6 +71,9 @@ kramdown:
   syntax_highlighter_opts:
     block:
       line_numbers: true
+
+sass:
+  sass_dir: /assets/sass/
 
 # Adsense (change to "enabled" to activate, also your client id and ad slot. Create a new ad unit from your Adsense account to get the slot.)
 adsense: "disabled"
