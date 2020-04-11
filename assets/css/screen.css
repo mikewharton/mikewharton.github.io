@@ -7,6 +7,7 @@ License: https://www.wowthemes.net/freebies-license/
     html { font-size:18px; } /* Increase the font size on higher resolutions */
     .container {max-width:60%;}
 }
+
 .mainheading {
     padding: 1.5rem 0rem;
 }
@@ -67,6 +68,26 @@ pre {
 
 .blue-local {
     background-color: rgb(0,50,223);
+}
+
+.green-local {
+    background-color: rgb(0,80,0);
+}
+
+.gy-navlink-local {
+    color: rgb(255,255,0)!important;
+    font-family: "Suez one";
+    font-size: 1.2rem;
+    padding-top: 0rem;
+    border-top: 0.4rem solid rgb(0,80,0);
+    margin-top: 0.3rem;
+    /* border-style: 0.1rem solid black;
+      border-bottom: none; fix this later  */
+}
+
+.gy-active-local > .gy-navlink-local,
+ a.gy-navlink-local:hover {
+    border-top: 0.4rem solid rgb(255,255,0);
 }
 
 #rotate-ccw-local {
