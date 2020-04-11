@@ -70,6 +70,11 @@ pre {
     background-color: rgb(0,80,0);
 }
 
+.thinborder-local {
+    border: 0.1rem solid rgba(0,0,0,.20);
+    border-bottom: 0rem
+}
+
 .gy-navlink-local {
     color: rgb(255,255,0)!important;
     font-family: "Suez one";
@@ -77,8 +82,6 @@ pre {
     padding-top: 0rem;
     border-top: 0.4rem solid rgb(0,80,0);
     margin-top: 0.3rem;
-    /* border-style: 0.1rem solid black;
-      border-bottom: none; fix this later  */
 }
 
 .gy-active-local > .gy-navlink-local,
