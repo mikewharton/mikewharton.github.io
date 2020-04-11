@@ -89,6 +89,34 @@ pre {
     border-top: 0.4rem solid rgb(255,255,0);
 }
 
+.gb-navlink-local {
+    color: rgb(0,80,0);
+    font-family: "Suez one";
+    font-size:1rem;
+    padding-right: auto;
+}
+
+.gb-active-local > .gb-navlink-local,
+ a.gb-navlink-local:hover {
+   background-color: rgba(0,0,0,0.3);
+   color: rgb(0,0,0);
+}
+
+/* trying to get horizontal scrolling working for third navbar - need to fix width to match container too */
+
+/* .gb-horizontal-scroll-wrapper { */
+  /* width: 61.55rem; */
+  /* overflow-y: auto;
+  overflow-x: hidden;
+  transform: rotate(270deg) translateY(-1500px);
+  transform-origin: right top;
+} */
+
+/* .gb-horizontal-scroll-wrapper > li {
+  transform: rotate(90deg);
+  transform-origin: right top;
+} */
+
 #rotate-ccw-local {
     width: 1rem;
     transform: rotate(270deg);
