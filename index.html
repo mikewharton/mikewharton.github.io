@@ -7,11 +7,41 @@ title: Home
 
 <!-- Featured
 ================================================== -->
+
+
+<!-- need to get a better js script that doesnt ruin all navbars when scrolling -->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-white p-0" style="top: 0.5rem;">
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="navbar-nav mr-auto gb-horizontal-scroll-wrapper">
+			<li class="nav-item active gb-active-local">
+				<a class="nav-link gb-navlink-local pt-0 pb-0" href="#">Featured</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link gb-navlink-local pt-0 pb-0" href="#">Research</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link gb-navlink-local pt-0 pb-0" href="#">Space</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link gb-navlink-local pt-0 pb-0" href="#">Physics</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link gb-navlink-local pt-0 pb-0" href="#">Engineering</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link gb-navlink-local pt-0 pb-0" href="#">Environment</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+
+
 <section class="featured-posts">
-    <div class="section-title">
+    <!-- <div class="section-title">
         <h2><span>Featured</span></h2>
-    </div>
-    <div class="row">
+    </div> -->
+    <div class="row pt-3">
 
     {% for post in site.posts %}
 
@@ -58,4 +88,3 @@ title: Home
     {% include pagination.html %}
 </span>
 </div>
-
