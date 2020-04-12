@@ -54,7 +54,7 @@ ga('send', 'pageview');
 
 <!-- ADD THIS AT SOME POINT  https://codepen.io/Designmite/pen/GwdBm -->
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-black fixed-top mediumnavigation nav-down">
+<nav class="navbar navbar-expand-lg navbar-dark bg-black mediumnavigation nav-down">
 
     <div class="container pr-0 pl-0">
 
@@ -107,9 +107,9 @@ ga('send', 'pageview');
 <!-- End Navigation
 ================================================== -->
 
-<div class="site-content">
+<div class="site-content" style="margin-top: -0.4rem;padding-top: 0px;">
 
-<hr style="width: 100%;color: rgb(0,0,0);border: 0.4rem solid black;" size="30">
+<hr style="width: 100%;color: rgb(0,0,0);border: 0.4rem solid black;width: auto;" size="30">
 
 <!-- <hr style="width: 100%;color: rgb(0,0,0);border: 1.6rem solid rgb(0,80,0);margin-top: -0.4rem;"> -->
 
@@ -187,8 +187,11 @@ ga('send', 'pageview');
 
 <!-- Content
 ================================================== -->
+
 <div class="main-content">
+
     {{ content }}
+		
 </div>
 
 {% if site.mailchimp-list %}

@@ -1,7 +1,7 @@
 
 @media screen and (min-width:1500px) {
     html { font-size:18px; } /* Increase the font size on higher resolutions */
-    .container {max-width:60%;}
+    .container {max-width:65%;}
 }
 
 .mainheading {
@@ -101,21 +101,6 @@ pre {
    background-color: rgba(0,0,0,0.3);
    color: rgb(0,0,0);
 }
-
-/* trying to get horizontal scrolling working for third navbar - need to fix width to match container too */
-
-/* .gb-horizontal-scroll-wrapper { */
-  /* width: 61.55rem; */
-  /* overflow-y: auto;
-  overflow-x: hidden;
-  transform: rotate(270deg) translateY(-1500px);
-  transform-origin: right top;
-} */
-
-/* .gb-horizontal-scroll-wrapper > li {
-  transform: rotate(90deg);
-  transform-origin: right top;
-} */
 
 #rotate-ccw-local {
     width: 1rem;
