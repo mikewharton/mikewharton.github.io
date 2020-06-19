@@ -1,8 +1,2 @@
-_site
-.DS_Store
-*.swp
-.sass-cache
-*~
-.jekyll-cache
 .github
-_config_dev.yml
+.git
