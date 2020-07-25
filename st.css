@@ -1,15 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@700&display=swap');
 
 div, img, a {
-  padding-top: 3rem;
+  margin-top: 1rem;
+  padding-top: 2rem;
   padding-right: 3rem;
   padding-bottom: 3rem;
   padding-left: 3rem;
-  font-family: 'Playfair Display SC', serif;
-  font-size: 2rem;
-  text-align: center;
-  color: hsl(0,0%,60%);
-  display: block;
   margin-left: auto;
   margin-right: auto;
+  width: 8em;
+}
+
+#mw {
+  background-image: url(mw.svg);
+  background-repeat: no-repeat;
+  background-position: center;
 }
