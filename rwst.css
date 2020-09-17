@@ -64,16 +64,6 @@ a:visited {
   text-decoration: none;
 }
 
-.info {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 400;
-  font-size: calc(0.5em + 1vw);
-  color: rgb(56,56,56);
-  padding-top: 150vh;
-  padding-bottom: 0.5em;
-}
-
-
 @media only screen
 
   and (max-device-width: 812px) {
@@ -113,6 +103,15 @@ a:visited {
       font-weight: 400;
       font-size: calc(2em + 1vw + 1vh);
       color: rgb(244,244,244);
+    }
+
+    .info {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 400;
+      font-size: calc(0.5em + 1vw);
+      color: rgb(56,56,56);
+      padding-top: 20vh;
+      padding-bottom: 0.5em;
     }
 
 }
@@ -158,6 +157,14 @@ a:visited {
       color: rgb(244,244,244);
     }
 
+    .info {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 400;
+      font-size: calc(0.5em + 1vw);
+      color: rgb(56,56,56);
+      padding-top: 150vh;
+      padding-bottom: 0.5em;
+    }
 }
 
 /* .bg1 {
