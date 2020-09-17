@@ -196,13 +196,3 @@ div {
   width: 100%
   position: absolute;
 }
-
-img {
-  width: 40%;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-
-hr {
-  color: rgba(0,0,0,0.1)
-}
