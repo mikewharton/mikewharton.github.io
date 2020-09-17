@@ -6,14 +6,14 @@
   background-position: center; */
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
-  font-size: 10rem;
+  font-size: 10em;
   color: rgb(56,56,56);
 }
 
 .head1 {
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
-  font-size: 5rem;
+  font-size: 5em;
   color: rgb(244,244,244);
 }
 
@@ -25,6 +25,12 @@ span:hover {
 #scroll {
   cursor: pointer;
   transition-delay: .8s;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 10;
 }
 
 .l1 {
@@ -74,6 +80,8 @@ div {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
+  width: 100%
+  position: absolute;
 }
 
 img {
