@@ -52,6 +52,7 @@ span:hover {
 .l1 {
   background-color: #e14e4e;
   cursor: pointer;
+  border-radius: 10px;
 }
 
 .l1:hover {
@@ -75,13 +76,14 @@ a:visited {
   and (orientation : portrait) {
 
     .bg1 {
-      background-image: url('bg/bg.jpg');
+      background-image: url('bg/bgc2.jpg');
       background-repeat: no-repeat;
       /* background-position: 0vw 40vh; */
       background-size: 100%;
       height: max-content;
       overflow: visible;
       height: 133.333333333vw;
+      border-radius: 25px;
     }
 
     .bg2 {
@@ -141,13 +143,14 @@ a:visited {
   and (orientation : landscape) {
 
     .bg1 {
-      background-image: url('bg/bg.jpg');
+      background-image: url('bg/bgc2.jpg');
       background-repeat: no-repeat;
       /* background-position: 0vw 40vh; */
       background-size: 100%;
       height: max-content;
       overflow: visible;
       height: 133.333333333vw;
+      border-radius: 25px;
     }
 
     .bg2 {
@@ -207,13 +210,14 @@ a:visited {
   and (min-device-width : 812px) {
 
     .bg1 {
-      background-image: url('bg/bg.jpg');
+      background-image: url('bg/bgc2.jpg');
       background-repeat: no-repeat;
       /* background-position: 0vw 80vh; */
       background-size: 100%;
       height: max-content;
       overflow: visible;
       height: 133.333333333vw;
+      border-radius: 25px;
     }
 
     .bg2 {
