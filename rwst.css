@@ -1,3 +1,7 @@
+.lastupdate::before {
+  content: 'last updated 19th September 2020, website created from scratch by me'
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
 #mw {
@@ -47,6 +51,7 @@ span:hover {
 
 .l1 {
   background-color: #e14e4e;
+  cursor: pointer;
 }
 
 .l1:hover {
@@ -71,6 +76,16 @@ a:visited {
 
     .bg1 {
       background-image: url('bg/bg.jpg');
+      background-repeat: no-repeat;
+      /* background-position: 0vw 40vh; */
+      background-size: 100%;
+      height: max-content;
+      overflow: visible;
+      height: 133.333333333vw;
+    }
+
+    .bg2 {
+      background-image: url('bg/bg2e1.jpg');
       background-repeat: no-repeat;
       /* background-position: 0vw 40vh; */
       background-size: 100%;
@@ -135,6 +150,16 @@ a:visited {
       height: 133.333333333vw;
     }
 
+    .bg2 {
+      background-image: url('bg/bg2e1.jpg');
+      background-repeat: no-repeat;
+      /* background-position: 0vw 40vh; */
+      background-size: 100%;
+      height: max-content;
+      overflow: visible;
+      height: 133.333333333vw;
+    }
+
     #mw {
       /* background-image: url(mw.svg);
       background-repeat: no-repeat;
@@ -191,6 +216,16 @@ a:visited {
       height: 133.333333333vw;
     }
 
+    .bg2 {
+      background-image: url('bg/bg2e1.jpg');
+      background-repeat: no-repeat;
+      /* background-position: 0vw 80vh; */
+      background-size: 100%;
+      height: max-content;
+      overflow: visible;
+      height: 133.333333333vw;
+    }
+
     #mw {
       /* background-image: url(mw.svg);
       background-repeat: no-repeat;
@@ -238,12 +273,12 @@ a:visited {
   background-size: 100%;
 } */
 
-.bg2 {
+/* .bg2 {
   background-image: url('bg/bg2e1.jpg');
   background-repeat: no-repeat;
   background-position: 0em 50em;
   background-size: 100%;
-}
+} */
 
 html {
   overflow-y: scroll;
