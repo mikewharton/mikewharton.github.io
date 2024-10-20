@@ -1,66 +1,80 @@
-<html>
-  <title>
-
-    mike wharton's website
-  </title>
-
+<!doctype html>
+<html lang="en">
   <head>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" type="text/css" href="rwst.css">
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Full Name</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles.css">
+	<script src="main.js" defer></script>
   </head>
+	
+  <body class="bg-dark text-white">
+	  
+<!--NAVBAR HERE-->
+	<div class="d-flex flex-column min-vh-100 min-vw-100">
+	  <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+		  <div class="container">
+			<a class="navbar-brand" href="#">
+			  <span class="d-none d-sm-inline">Mike Miroslav Wharton</span>
+			  <span class="d-inline d-sm-none">Short Name</span>
+			</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			  <span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				<li class="nav-item">
+				  <a class="nav-link active" aria-current="page" href="#">Home</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" href="#">Link</a>
+				</li>
+				<li class="nav-item dropdown">
+				  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+					Dropdown
+				  </a>
+				  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+					<li><a class="dropdown-item" href="#">Action</a></li>
+					<li><a class="dropdown-item" href="#">Another action</a></li>
+					<li><hr class="dropdown-divider"></li>
+					<li><a class="dropdown-item" href="#">Something else here</a></li>
+				  </ul>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link disabled">Disabled</a>
+				</li>
+			  </ul>
+			</div>
+		  </div>
+		</nav>
 
-  <body>
+<!--MAIN BODY -->
+		
+			<div class="d-flex flex-grow-1 col-lg-4 col-md-6 col-sm-8 container justify-content-center align-items-center animate__animated animate__fadeInLeft">
+			  <div class="col">
+				<h1 class="cover-heading justify-content-center text-center">Hello there,</h1>
+				<p class="lead justify-content-center text-center" id="age">I am {age} years old and have a masters in mechanical engineering and a few other interests.</p>
+				   <p class="lead justify-content-center align-items-center text-center">
+					  <a href="#" class="btn btn-lg btn-secondary">Learn more</a>
+					</p>
+			  </div>
+			</div>
+		
 
-    <div id="mw">
-      <span>
-        <a href="index.html">
-          mike wharton's
-          website
-        </a>
-      </span>
-    </div>
+		
+<!--FOOTER-->
+	<footer class="container d-flex flex-wrap justify-content-between align-items-center text-white-50">
+	  <span class="text-white-50" id="year">© {year} Mike Miroslav Wharton</span>
 
-    <div class="flex bg1">
-
-        <div class="head1">
-
-            <div class="sptop">
-              <span class="l1">
-                <a href="art/">
-                  -art-
-                </a>
-              </span>
-            </div>
-
-            <div class="spmid">
-              <span class="l1">
-                <!-- <a href="about/"> -->
-                  -about-
-                <!-- </a> -->
-              </span>
-            </div>
-
-            <div class="spmid">
-              <span class="l1">
-                <!-- <a href="contact/"> -->
-                  -contact-
-                <!-- </a> -->
-              </span>
-            </div>
-
-        </div>
-
-      </div>
-
+	  <ul class="nav justify-content-end">
+		<li class="nav-item"><a href="#" class="nav-link px-2 text-white-50">Home</a></li>
+		<li class="nav-item"><a href="#" class="nav-link px-2 text-white-50">About</a></li>
+		<li class="nav-item"><a href="#" class="nav-link px-2 text-white-50">Contact</a></li>
+	  </ul>
+	</footer>
+		
+	</div>
   </body>
-
-  <footer>
-
-    <div class="info lastupdate"></div>
-
-  </footer>
-
 </html>
