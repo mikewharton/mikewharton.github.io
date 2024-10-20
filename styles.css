@@ -7,6 +7,7 @@
 body {
   	font-family: 'Source Serif 4', sans-serif;
 	height: 100%;
+	font-weight: 250;
 }
 
 nav {
@@ -18,8 +19,24 @@ footer {
 	font-family: 'Consolas', 'Courier New', monospace;
 }
 
+/*
+#paperlinks {
+	font-size: 0.9em;
+}
+*/
+
+/*
+td {
+	font-size: 0.9em;
+}
+*/
+
 .navbar-brand {
 	font-weight: 600;
 /*	color: red;*/
 	font-size: 2rem;
+}
+
+th {
+	text-align: left;
 }

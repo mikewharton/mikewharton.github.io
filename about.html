@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mike Miroslav Wharton</title>
+	  
+<!--	  BOOTSTRAP-->
+	  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+	  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+	  
+<!--	  ANIMATE-->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	  
+    <link rel="stylesheet" href="styles.css">
+	<script src="main.js" defer></script>
+  </head>
+	
+  <body class="bg-dark text-white">
+	<div class="d-flex flex-column min-vh-100 min-vw-100">
+		
+<!--NAVBAR HERE-->
+	  <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+		  
+		  <div class="container d-flex align-items-lg-baseline align-items-center">
+			  
+			<a class="navbar-brand" href="index.html">
+<!--				If larger width-->
+			  <span class="d-none d-sm-inline">Mike Miroslav Wharton</span> 
+<!--				If small width-->
+			  <span class="d-inline d-sm-none">Mike Wharton</span>
+			</a>
+			  
+			  
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			  <span class="navbar-toggler-icon"></span>
+			</button>
+			  
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			  	<li class="nav-item">
+				  <a class="nav-link" href="index.html">Home</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link active" aria-current="page" href="#">About</a>
+				</li>
+				  
+				<li class="nav-item dropdown">
+					
+				  <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" id="navbarDropdown" role="button"  aria-expanded="false" href="#">
+					My Work
+				  </a>
+					
+					  <ul class="dropdown-menu align-items-end" aria-labelledby="navbarDropdown">
+						<li><a class="dropdown-item" href="research.html">Research</a></li>
+<!--						<li><hr class="dropdown-divider"></li>-->
+					  	<li><a class="dropdown-item" href="music.html">Music</a></li>
+<!--					  <li><hr class="dropdown-divider"></li>-->
+						<li><a class="dropdown-item" href="art.html">Art</a></li>
+					  </ul>
+					
+				</li>
+				  
+			  </ul>
+			</div>
+			  
+		  </div>
+		</nav>
+
+<!--MAIN BODY -->
+		
+<!--
+			<div class="d-flex flex-grow-1 container align-items-center animate__animated animate__fadeInLeft">
+
+			</div>
+-->
+	<div class="flex-column flex-grow-1 container pt-5">
+		
+		<table class="table table-dark table-hover">
+<!--
+		  <thead>
+			<tr>
+			  <th scope="col"></th>
+			  <th scope="col">First</th>
+			</tr>
+		  </thead>
+-->
+		  <tbody>
+			<tr>
+			  <th>Education</th>
+				<td class="text-center">
+					<p class="fw-semibold mb-0">University of Bristol</p>
+					
+					<p class="fst-italic mt-0">2024 MEng Mechanical Engineering: First class with average 75%, Bechtel Industrial Prize</p>
+					
+					<p class="fw-semibold mb-0">Bishop Wordsworth's Grammar School</p>
+					
+					<p class="fst-italic mt-0">2020 A Levels: Fine Art A*, Maths A*, Further Maths A*, Physics A*</p>
+					
+				</td>
+			</tr>
+			
+			<tr>
+			  <th>Publications</th>
+				<td class="text-left" id="paperlinks">
+					<p><a href="https://doi.org/10.1017/pds.2024.87" class="nav-link link-opacity-50-hover" target="_blank">Wharton, M.M. et al. (2024) ‘Perception-centric design considerations for low-cost haptic emulation in prototypes’, Proceedings of the Design Society, 4, pp. 845–854. doi:10.1017/pds.2024.87. </a></p>
+					
+					<p><a href="https://doi.org/10.1016/j.ymssp.2024.111583" class="nav-link link-opacity-50-hover" target="_blank">Wharton, M.M. (2024) ‘Photogrammetry and mean intensity mapping as methods of low-cost structural health monitoring’, Mechanical Systems and Signal Processing, 219, p. 111583. doi:10.1016/j.ymssp.2024.111583. </a></p>
+					
+				</td>
+			</tr>
+			  
+			<tr>
+			  <th>Research Experience</th>
+				<td class="text-left">
+					<p class="fw-semibold mb-0"><span class="align-text-bottom">■</span> 2024 (January-April), University of Bristol</p>
+					
+					<p class="mt-0">Achieved 83% in my final year group project titled “Exploring and modelling the causes and effects of dynamic chain drive vibrations” earning the Bechtel Industrial Group Project Prize for the highest average group mark in the cohort. Worked alongside RAs in the Electrical Energy Management and Composites groups combining materials, software, and experimental analysis of resonant bike chains using slow motion videogrammetry.</p>
+					
+					<p class="fw-semibold mb-0"><span class="align-text-bottom">■</span> 2023 (June-September), Design and Manufacturing Futures Research Group</p>
+					
+					<p class="mt-0">Alongside postgraduate students and academics in the Design and Manufacturing Futures Research Group, I carried out a paid standalone research project over four months exploring how the use of haptics could impact prototyping of the future. Work involved academic writing, coding in Python for Unity, as well as hands on control work with Arduino, ESP32, haptic motors, a laser vibrometer and 3D printing. I produced a conference paper for the 2024 International DESIGN conference in Croatia.</p>
+					
+					<p class="fw-semibold mb-0"><span class="align-text-bottom">■</span> 2023 (January-April), University of Bristol</p>
+					
+					<p class="mt-0">Achieved 83% in my individual research project “On the Use of Photogrammetry for Low Cost Structural Health Monitoring”. This has since been published in the Mechanical Systems and Signal Processing journal. For the project I produced a proof-of-concept software package in MATLAB capable of rudimentary dynamic image analysis, and using a video camera with a high optical zoom I demonstrated its capability for long range non-contact dynamic analysis on the Clifton suspension bridge.</p>
+					
+					<p class="fw-semibold mb-0"><span class="align-text-bottom">■</span> 2022-2024 Bristol Institute for Learning and Teaching (BILT) Conference</p>
+					
+					<p class="mt-0">Worked as a paid research assistant and student ambassador alongside three senior academics in engineering and social sciences. I carried out qualitative analysis of hundreds of student responses, produced an infographic poster, and delivered a solo conference presentation to ~50 attendees.</p>
+					
+			  </td>
+			</tr>
+			  
+			<tr>
+			  <th>Industrial Experience</th>
+				<td class="text-left">
+					<p class="fw-semibold mb-0"><span class="align-text-bottom">■</span> 2024 (September onwards), Script Intellectual Property LLP</p>
+					
+					<p class="mt-0">Working as a Trainee Patent Attorney in an SME alongside experienced academics in life sciences, chemistry, physics, and engineering; learning the fundamentals of IP, and helping to draft patents for university academics in Bath and London, as well as larger multinational companies. I have learnt a lot about how IP can be used as well as what makes a good invention in the context of research.</p>
+					
+					<p class="fw-semibold mb-0"><span class="align-text-bottom">■</span> 2022 (July-September), Cyclops Marine Ltd (Portsmouth, UK)</p>
+					
+					<p class="mt-0">Interned with a small engineering team to support the design and enhancement of wireless load sensors for racing yachts; as well as working on marketing and operations management. Pioneered quality assurance methods and put my theory into practice to assess and communicate the structural integrity of components through technical drawings and presentations.</p>
+					
+					<p class="fw-semibold mb-0"><span class="align-text-bottom">■</span> 2019 (July), University of Cambridge</p>
+					
+					<p class="mt-0">In July 2019 I completed a physical sciences course involving lectures in physics and engineering. I particularly enjoyed experiencing some of the practical work involved in testing materials.</p>
+					
+				</td>
+			</tr>
+			  
+			<tr>
+			  <th>Societies and Projects</th>
+				<td class="text-left">
+					<p class="fw-semibold mb-0"><span class="align-text-bottom">■</span> 2024 Web development</p>
+					
+					<p class="mt-0">Produced this portfolio website from scratch using Bootstrap and Dreamweaver.</p>
+					
+					<p class="fw-semibold mb-0"><span class="align-text-bottom">■</span> 2024 Mechanical Systems and Signal Processing Journal Elsevier</p>
+					
+					<p class="mt-0">Critically reviewing papers submitted for publication, based on their scientific rigor.</p>
+					
+					<p class="fw-semibold mb-0"><span class="align-text-bottom">■</span> 2022-2023 Symphonia Secretary</p>
+					
+					<p class="mt-0">As well as organising monthly committee meetings, taking minutes, and delegating work; I wrote weekly newsletters for the ~200 members, and helped to organise events.</p>
+					
+					<p class="fw-semibold mb-0"><span class="align-text-bottom">■</span> 2020-2021, UK SEDS Mars Rover Competition</p>
+					
+					<p class="mt-0">Collaborated with a group of engineers working on the UK SEDS Mars rover competition. I was responsible for designing the 3D printed wheels assembly and helped with material selection. I helped to deliver a warmly received presentation to Airbus representatives.</p>
+				</td>
+			</tr>  
+			  
+			<tr>
+			  <th>Software Proficiency</th>
+				<td class="text-left">
+					<p class="text"><span class="fw-semibold">Software:</span> Autodesk Fusion 360/Inventor/AutoCAD, Microsoft Office Suite, Adobe Photoshop/InDesign/Premiere Pro, Cura, MATLAB, Abaqus, Ansys, COMSOL, Star CCM+</p>
+					
+					<p class="text"><span class="fw-semibold">Programming:</span> MATLAB, Python, Arduino, HTML/CSS, JS</p>
+				</td>
+			</tr>  
+			  
+			<tr>
+			  <th>Qualities</th>
+				<td class="text-left">
+					<p class="text fst-italic">Described by seniors as motivated with an excellent work ethic and mature attitude. I have a diligent attention to detail and a strong problem solving/troubleshooting ability.</p>
+					
+					<p class="text fst-italic">Good communicator and visual thinker, with an eye for graphic design.</p>
+					
+					<p class="text fst-italic">An adept team-worker, exceptionally organised.</p>
+				</td>
+			</tr>  
+			
+			<tr>
+			  <th>Personal Interests</th>
+				<td class="text-left">
+					<p class="text fst-italic">My main hobbies are music and art. I have ABRSM Grade 8 and ARSM Diploma in trombone, and Grade 7 in piano. I have played with countless different ensembles over the past 12 years including the Bristol Symphonia for which I was secretary in 2022-2023. I was the soloist and winner of the concerto competition, playing Grieg’s piano concerto with them in April 2024. I have hiked much of Yorkshire (including the three peaks) as well as France and Switzerland. I also enjoy running and road cycling, and have an Elo of 1700 in chess. More recently I have taken to photography after some solo travelling in Europe.</p>
+				</td>
+			</tr>  
+			  
+		  </tbody>
+		</table>
+		
+		
+		
+		
+	</div>
+
+		
+<!--FOOTER-->
+	<footer class="container d-flex flex-wrap justify-content-between align-items-center text-white-50">
+	  <span class="text-white-50" id="year">© {year} {footer}</span>
+
+	  <ul class="nav justify-content-end">
+		<li class="nav-item"><a href="index.html" class="nav-link px-2 text-white-50">Home</a></li>
+		<li class="nav-item"><a href="about.html" class="nav-link px-2 text-white-50">About</a></li>
+		<li class="nav-item"><a href="contact.html" class="nav-link px-2 text-white-50">Contact</a></li>
+	  </ul>
+	</footer>
+		
+	</div>
+  </body>
+</html>
