@@ -1,10 +1,105 @@
 <!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>Untitled Document</title>
-</head>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#000000"/>
+    <title>Mike Miroslav Wharton</title>
+	  
+<!--	  BOOTSTRAP-->
+	  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
-<body>
-</body>
+	  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+	  
+<!--	  ANIMATE-->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	  
+    <link rel="stylesheet" href="styles.css">
+	<script src="main.js" defer></script>
+  </head>
+	
+  <body class="bg-dark text-white">
+	<div class="d-flex flex-column min-vh-100 min-vw-100">
+		
+<!--NAVBAR HERE-->
+	  <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+		  
+		  <div class="container d-flex align-items-lg-baseline align-items-center">
+			  
+			<a class="navbar-brand" href="index.html">
+<!--				If larger width-->
+			  <span class="d-none d-sm-inline">Mike Miroslav Wharton</span> 
+<!--				If small width-->
+			  <span class="d-inline d-sm-none">Mike Wharton</span>
+			</a>
+			  
+			  
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			  <span class="navbar-toggler-icon"></span>
+			</button>
+			  
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				<li class="nav-item">
+				  <a class="nav-link" href="index.html">Home</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" href="about.html">About</a>
+				</li>
+				
+				<li class="nav-item">
+				  <a class="nav-link" href="research.html">Research</a>
+				</li>
+				  
+				<li class="nav-item dropdown">
+					
+				  <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" id="navbarDropdown" role="button"  aria-expanded="false" href="#">
+					Other
+				  </a>
+					
+					  <ul class="dropdown-menu align-items-end dropdown-menu-dark" aria-labelledby="navbarDropdown">
+<!--						<li><hr class="dropdown-divider"></li>-->
+					  	<li><a class="dropdown-item" href="music.html">Music</a></li>
+<!--					  <li><hr class="dropdown-divider"></li>-->
+						<li><a class="dropdown-item" href="photography.html">Photography</a></li>
+						<li><a class="dropdown-item active" aria-current="page" href="art.html">Art</a></li>
+						<li><a class="dropdown-item" href="design.html">Design</a></li>
+					  </ul>
+					
+				</li>
+				  
+				<li class="nav-item">
+				  <a class="nav-link" href="contact.html">Contact</a>
+				</li>
+				  
+			  </ul>
+			</div>
+			  
+		  </div>
+		</nav>
+
+<!--MAIN BODY -->
+		
+			<div class="flex-column flex-grow-1 container pt-2">
+			  
+				
+				
+			</div>
+		
+
+		
+<!--FOOTER-->
+
+	<footer class="container d-flex flex-wrap justify-content-between align-items-center text-white-50">
+	  <span class="text-white-50" id="year">© {year} {footer}</span>
+
+	  <ul class="nav justify-content-end">
+		<li class="nav-item"><a href="index.html" class="nav-link px-2 text-white-50">Home</a></li>
+		<li class="nav-item"><a href="about.html" class="nav-link px-2 text-white-50">About</a></li>
+		<li class="nav-item"><a href="contact.html" class="nav-link px-2 text-white-50">Contact</a></li>
+	  </ul>
+	</footer>
+		
+	</div>
+  </body>
 </html>

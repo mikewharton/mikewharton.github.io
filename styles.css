@@ -19,6 +19,12 @@ footer {
 	font-family: 'Consolas', 'Courier New', monospace;
 }
 
+img {
+	background-size:cover;
+	background-repeat:no-repeat;
+	background-position:center;
+}
+
 /*
 #paperlinks {
 	font-size: 0.9em;
@@ -39,4 +45,27 @@ td {
 
 th {
 	text-align: left;
+}
+
+.imgzoombox {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: rgba(0, 0, 0, 0.8);
+  background-blend-mode: soft-light;
+  transform: scale(1);
+  transition: 0.5s ease;
+}
+
+.imgbox {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: rgba(0, 0, 0, 0.8);
+  background-blend-mode: soft-light;
+}
+
+.imgzoombox:hover {
+	transform: scale(1.01);
+	background-color: rgba(0,0,0,0.7);
 }
