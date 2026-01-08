@@ -914,3 +914,52 @@
   }
 
 })();
+
+
+(function () {
+  const list = document.getElementById('announcements-list');
+  const btn = document.getElementById('announcements-more-btn');
+  if (!list || !btn) return;
+
+  const BATCH = 3;
+  const items = Array.from(list.querySelectorAll('[data-announcement]'));
+  let visibleCount = 0;
+
+  function init() {
+    // Hide all initially
+    items.forEach(it => it.classList.add('is-hidden'));
+
+    // Show initial batch
+    revealNext();
+    // If nothing to reveal (zero items), hide the button
+    if (items.length === 0) btn.style.display = 'none';
+  }
+
+  function revealNext() {
+    const start = visibleCount;
+    const end = Math.min(items.length, visibleCount + BATCH);
+    let revealed = 0;
+
+    for (let i = start; i < end; i++) {
+      items[i].classList.remove('is-hidden');
+      revealed++;
+    }
+
+    visibleCount += revealed;
+    btn.setAttribute('aria-expanded', String(visibleCount > 0));
+
+    if (visibleCount >= items.length) {
+      // nothing left to show
+      btn.style.display = 'none';
+    }
+  }
+
+  btn.addEventListener('click', revealNext, { passive: true });
+
+  // initialise on DOM ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();

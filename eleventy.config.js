@@ -21,6 +21,10 @@ module.exports = function (eleventyConfig) {
     return collectionApi.getFilteredByGlob("src/research/**/*.md");
   });
 
+  eleventyConfig.addCollection("announcements", function (collectionApi) {
+    return collectionApi.getFilteredByGlob("src/announcements/**/*.md");
+  });
+
   // Simple date filter to support templates like: {{ post.date | date("d MMMM yyyy") }}
   // Defaults to en-GB locale (British English).
   eleventyConfig.addFilter("date", function (dateInput, format = "d MMMM yyyy", locale = "en-GB") {

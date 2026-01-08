@@ -47,6 +47,28 @@ permalink: /index.html
     </div>
   </div>
 
+  <div class="card announcements-card">
+    <h2 class="card-title">Announcements</h2>
+
+    {% if collections.announcements and collections.announcements | length > 0 %}
+      <ul class="announcements-list" id="announcements-list">
+        {% for ann in collections.announcements %}
+          <li class="announcement-item" data-announcement>
+            <div class="announce-title">{{ ann.data.title }}</div>
+            <small class="muted announce-date">{{ ann.date | date("d MMM yyyy") }}</small>
+          </li>
+        {% endfor %}
+      </ul>
+
+      <div class="announcements-more">
+        <button type="button" id="announcements-more-btn">View more</button>
+      </div>
+
+    {% else %}
+      <p class="muted small">No announcements.</p>
+    {% endif %}
+  </div>
+
   <div class="side-grid">
     <div class="side-tile">
       <h3>Music</h3>
@@ -72,4 +94,6 @@ permalink: /index.html
       </p>
     </div>
   </div>
+
 </section>
+
