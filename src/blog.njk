@@ -1,0 +1,32 @@
+---
+title: "Blog — Mike Wharton"
+layout: layouts/base.njk
+hero_title: "Blog"
+hero_sub: "Updates, notes and longer posts."
+permalink: /blog.html
+---
+
+<section class="stack">
+  <div class="card">
+    <h2>Posts</h2>
+
+    {# If you have a posts collection, list it; otherwise show a helpful message #}
+    {% if collections.posts and collections.posts | length > 0 %}
+      <ul>
+        {%- for post in collections.posts | reverse -%}
+          <li>
+            <a href="{{ post.url }}">{{ post.data.title | default(post.fileSlug) }}</a><br>
+            <small>{{ post.date | date("d MMMM yyyy") }}</small>
+          </li>
+        {%- endfor -%}
+      </ul>
+    {% else %}
+      <p>No posts found. Place Markdown files in <code>src/posts/</code> (or update your collections in <code>.eleventy.js</code>).</p>
+    {% endif %}
+  </div>
+
+  <div class="card">
+    <h2>Easier authoring (recommended)</h2>
+    <p class="lede">If you want Markdown posts and automatic blog indexes, place posts in <code>src/posts/</code> (or update your Eleventy collections to point to <code>src/blog/</code> if you prefer that folder name). Eleventy will generate the index above automatically.</p>
+  </div>
+</section>
