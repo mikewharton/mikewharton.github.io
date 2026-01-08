@@ -832,4 +832,20 @@
     });
   }
 
+  /* ---------- Email obfuscation ---------- */
+  const emailLink = document.getElementById('email-link');
+  const emailText = document.getElementById('email-text');
+  
+  if (emailLink && emailText) {
+    const obfuscatedEmail = emailLink.getAttribute('data-email');
+    if (obfuscatedEmail) {
+      // Extract every other character (even indices) to get the real email
+      const realEmail = [...obfuscatedEmail].filter((_, i) => i % 2 === 0).join('');
+      
+      // Update the link and text
+      emailLink.href = 'mailto:' + realEmail;
+      emailText.textContent = realEmail;
+    }
+  }
+
 })();
