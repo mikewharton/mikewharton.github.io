@@ -88,9 +88,8 @@ main {
 .brand {
   font-family: var(--serif-heading);
   font-weight: 900;
-  letter-spacing: .06em;
   color: var(--text);
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   text-decoration: none;
 }
 
