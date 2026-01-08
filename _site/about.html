@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About — Mike Wharton</title>
+
+  <!-- Favicon and static assets use pathPrefix so project/user pages both work -->
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/script.js" defer></script>
+</head>
+<body>
+  <pre id="ascii-canvas" class="ascii-bg"></pre>
+
+  <header id="site-header" class="nav-plain" role="banner" aria-label="Site navigation">
+  <div class="nav-inner">
+    <a class="brand" href="/index.html" aria-label="Home">
+      <span class="brand-full">Mike Miroslav Wharton</span>
+      <span class="brand-short">Mike Wharton</span>
+    </a>
+
+    <button class="nav-toggle" aria-controls="nav-list" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+
+    <nav id="primary-nav" role="navigation" aria-label="Primary">
+      <ul class="nav-list" id="nav-list">
+        <li><a href="/research.html">Research</a></li>
+        <li>
+          <button class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Other</button>
+          <ul class="nav-dropdown">
+            <li><a href="/music.html">Music</a></li>
+            <li><a href="/art.html">Art</a></li>
+            <li><a href="/photography.html">Photography</a></li>
+          </ul>
+        </li>
+        <li><a href="/blog.html">Blog</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+  <main id="site-main">
+    <section class="hero">
+      <h1 class="hero-title">About</h1>
+      
+        <p class="hero-sub">Short bio, interests and CV.</p>
+      
+    </section>
+
+    
+<section class="card" aria-labelledby="experience-heading">
+  <h2 id="experience-heading">Experience</h2>
+
+  <ol class="timeline">
+    <li class="timeline-item is-current">
+      <span class="timeline-dot"></span>
+      <div class="timeline-content">
+        <h3>Senior Role Title</h3>
+        <p class="lede">Organisation name</p>
+        <p>Short description of responsibilities or focus.</p>
+        <small class="lede">2024–Present</small>
+      </div>
+    </li>
+
+    <li class="timeline-item">
+      <span class="timeline-dot"></span>
+      <div class="timeline-content">
+        <h3>Role Title</h3>
+        <p class="lede">Organisation name</p>
+        <small class="lede">2021–2024</small>
+      </div>
+    </li>
+  </ol>
+</section>
+
+
+
+  </main>
+
+  <footer role="contentinfo">
+  <div class="footer-inner">
+    <p>(c) <span id="copyright-year"></span> Mike Miroslav Wharton</p>
+    <p><a href="https://www.linkedin.com/">LinkedIn</a> &nbsp; <a href="https://github.com/">GitHub</a></p>
+    <!-- <p><a href="/cv.pdf" download>Download CV</a></p> -->
+  </div>
+</footer>
+
+</body>
+</html>

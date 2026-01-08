@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>{{ title | default("Site") }}</title>
+
+  <link rel="icon" href="{{ pathPrefix }}favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="{{ pathPrefix }}style.css">
+  <script src="{{ pathPrefix }}script.js" defer></script>
+</head>
+<body{% if permalink == "/index.html" or permalink == "/" %} data-page="index"{% endif %}>
+  <pre id="ascii-canvas" class="ascii-bg"></pre>
+
+  {% include "header.njk" %}
+
+  <main id="site-main">
+    {{ content | safe }}
+  </main>
+
+  {% include "footer.njk" %}
+</body>
+</html>

@@ -823,15 +823,8 @@
     // Set initial height for non-index pages
     updateAsciiHeight();
     
-    // Force fixed positioning (in case CSS isn't working due to containing blocks)
-    if (!isIndexPage && asciiCanvas) {
-      // Ensure it's truly fixed to viewport
-      asciiCanvas.style.position = 'fixed';
-      asciiCanvas.style.top = '0';
-      asciiCanvas.style.left = '0';
-      asciiCanvas.style.right = '0';
-      asciiCanvas.style.zIndex = '-1';
-    }
+    // Force fixed positioning removed to allow CSS to control layout
+
     
     // Initialize and start animation
     function initializeAndStart() {
@@ -855,6 +848,9 @@
         
         // Render immediately to show something
         render();
+        // Ensure layout recalculation after initial render
+        if (typeof handleResize === 'function') handleResize();
+
         
         // Start animation - always start if not already running
         animating = true;

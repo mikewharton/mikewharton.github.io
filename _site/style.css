@@ -1460,7 +1460,7 @@ footer .footer-inner { max-width: var(--max-width); margin: 0 auto; }
   right: 0;
   bottom: 0;
   pointer-events: none;
-  z-index: -1; /* Behind header but above page background */
+  z-index: 0; 
   overflow: hidden;
   opacity: var(--ascii-opacity);
   transition: opacity 240ms ease;
@@ -1473,6 +1473,7 @@ footer .footer-inner { max-width: var(--max-width); margin: 0 auto; }
 /* Non-index pages: more subtle, positioned to cover hero/title area */
 body:not([data-page="index"]) #ascii-canvas.ascii-bg,
 body:not([data-page="index"]) .ascii-bg#ascii-canvas {
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
@@ -1480,7 +1481,7 @@ body:not([data-page="index"]) .ascii-bg#ascii-canvas {
   width: 100vw;
   height: var(--ascii-height, 300px);
   min-height: 150px;
-  z-index: -1;
+  z-index: 0;
   margin: 0;
   padding: 0;
   will-change: opacity;
@@ -1488,7 +1489,7 @@ body:not([data-page="index"]) .ascii-bg#ascii-canvas {
 
 .ascii-bg::after{
   content: "";
-  position: absolute;
+  position: fixed;
   inset: 0 0 auto 0;
   height: calc(var(--header-h) + 36px);
   background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,0));
@@ -1508,7 +1509,7 @@ body:not([data-page="index"]) .ascii-bg#ascii-canvas {
 }
 
 #ascii-canvas{
-  position: absolute;
+  position: fixed;
   inset: 0;
   margin: 0;
   white-space: pre;
@@ -1533,7 +1534,7 @@ body:not([data-page="index"]) #ascii-canvas {
   }
   
   body:not([data-page="index"]) #ascii-canvas {
-    color: rgba(232, 232, 232, 0.12);
+    color: rgba(232, 232, 232, 0.08);
   }
 }
 
