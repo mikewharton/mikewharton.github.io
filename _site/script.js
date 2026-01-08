@@ -150,5 +150,65 @@
   // Add this CSS hook: .nav-toggle.open .bar:nth-child(1) { transform: translateY(6px) rotate(45deg); }
   // .nav-toggle.open .bar:nth-child(2) { opacity: 0; }
   // .nav-toggle.open .bar:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+  // Dropdown toggle functionality
+  const dropdownToggles = document.querySelectorAll('.nav-dropdown-toggle');
+  
+  dropdownToggles.forEach(toggle => {
+    toggle.addEventListener('click', function(e) {
+      e.preventDefault();
+      const dropdown = this.nextElementSibling;
+      const isOpen = dropdown.classList.contains('show');
+      
+      // Close all dropdowns
+      document.querySelectorAll('.nav-dropdown.show').forEach(d => {
+        d.classList.remove('show');
+      });
+      document.querySelectorAll('.nav-dropdown-toggle[aria-expanded="true"]').forEach(t => {
+        t.setAttribute('aria-expanded', 'false');
+      });
+      
+      // Open clicked dropdown if it was closed
+      if (!isOpen) {
+        dropdown.classList.add('show');
+        this.setAttribute('aria-expanded', 'true');
+      }
+    });
+    
+    // Close dropdown when clicking a link inside
+    const dropdown = toggle.nextElementSibling;
+    if (dropdown && dropdown.classList.contains('nav-dropdown')) {
+      dropdown.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') {
+          dropdown.classList.remove('show');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+  });
+  
+  // Close dropdowns when clicking outside
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.nav-dropdown-toggle') && !e.target.closest('.nav-dropdown')) {
+      document.querySelectorAll('.nav-dropdown.show').forEach(d => {
+        d.classList.remove('show');
+      });
+      document.querySelectorAll('.nav-dropdown-toggle[aria-expanded="true"]').forEach(t => {
+        t.setAttribute('aria-expanded', 'false');
+      });
+    }
+  });
+  
+  // Close dropdowns with Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.nav-dropdown.show').forEach(d => {
+        d.classList.remove('show');
+      });
+      document.querySelectorAll('.nav-dropdown-toggle[aria-expanded="true"]').forEach(t => {
+        t.setAttribute('aria-expanded', 'false');
+      });
+    }
+  });
 })();
 

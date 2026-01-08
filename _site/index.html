@@ -13,7 +13,7 @@
 <body>
   <header id="site-header" class="nav-plain" role="banner" aria-label="Site navigation">
   <div class="nav-inner">
-    <a class="brand" href="/index.html" aria-label="Home">MW</a>
+    <a class="brand" href="/index.html" aria-label="Home">Mike Wharton</a>
 
     <button class="nav-toggle" aria-controls="primary-nav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="bar"></span><span class="bar"></span><span class="bar"></span>
@@ -22,9 +22,14 @@
     <nav id="primary-nav" role="navigation" aria-label="Primary">
       <ul class="nav-list" id="nav-list">
         <li><a href="/research.html">Research</a></li>
-        <li><a href="/music.html">Music</a></li>
-        <li><a href="/art.html">Art</a></li>
-        <li><a href="/photography.html">Photography</a></li>
+        <li>
+          <button class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Other</button>
+          <ul class="nav-dropdown">
+            <li><a href="/music.html">Music</a></li>
+            <li><a href="/art.html">Art</a></li>
+            <li><a href="/photography.html">Photography</a></li>
+          </ul>
+        </li>
         <li><a href="/blog.html">Blog</a></li>
       </ul>
     </nav>
