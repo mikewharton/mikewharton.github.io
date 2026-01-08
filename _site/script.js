@@ -42,10 +42,8 @@
     navList.classList.add('show');
     if (navToggle) navToggle.classList.add('open');
     if (navToggle) navToggle.setAttribute('aria-expanded', 'true');
-
-    if (window.innerWidth <= MOBILE_LOCK_WIDTH) {
-      document.body.style.overflow = 'hidden';
-    }
+    document.body.classList.add('nav-open');
+    // Allow scrolling - don't lock body overflow
   };
 
   const closeNav = () => {
@@ -53,7 +51,7 @@
     navList.classList.remove('show');
     if (navToggle) navToggle.classList.remove('open');
     if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
+    document.body.classList.remove('nav-open');
   };
 
   if (navToggle && navList) {
@@ -532,9 +530,18 @@
       testEl.textContent = 'M'; // Use 'M' as a representative character
       document.body.appendChild(testEl);
       const rect = testEl.getBoundingClientRect();
-      const width = rect.width;
-      const height = rect.height;
+      let width = rect.width;
+      let height = rect.height;
       document.body.removeChild(testEl);
+      
+      // Fallback if measurement fails (can happen on mobile before fonts load)
+      if (width === 0 || height === 0 || isNaN(width) || isNaN(height)) {
+        // Use computed font size as fallback
+        const fontSize = parseFloat(getComputedStyle(asciiCanvas).fontSize) || 10;
+        width = fontSize * 0.6; // Approximate character width (monospace is usually ~60% of height)
+        height = fontSize;
+      }
+      
       return { width, height };
     }
     
@@ -680,16 +687,22 @@
     let lastAnimTime = 0;
     let isScrolling = false;
     let scrollTimeout = null;
+    let frozenAnimTime = 0; // Store animTime when scrolling starts
     const ANIM_SPEED = 0.0005; // Slower animation
     
     function animate(now) {
       if (!animating) return;
       
-      // Pause animation during active scrolling
-      if (!isScrolling) {
-        if (lastAnimTime === 0) lastAnimTime = now;
-        animTime += (now - lastAnimTime) * ANIM_SPEED;
+      // Completely freeze animation during active scrolling
+      if (isScrolling) {
+        // Don't update animTime, don't render - keep frozen
+        requestAnimationFrame(animate);
+        return;
       }
+      
+      // Normal animation when not scrolling
+      if (lastAnimTime === 0) lastAnimTime = now;
+      animTime += (now - lastAnimTime) * ANIM_SPEED;
       lastAnimTime = now;
       render();
       requestAnimationFrame(animate);
@@ -698,7 +711,17 @@
     // Detect scrolling and pause animation
     let lastScrollY = window.scrollY;
     function handleScroll() {
-      isScrolling = true;
+      const currentScrollY = window.scrollY;
+      
+      // Only set scrolling if actually moved
+      if (Math.abs(currentScrollY - lastScrollY) > 1) {
+        if (!isScrolling) {
+          // Freeze the current animation time
+          frozenAnimTime = animTime;
+        }
+        isScrolling = true;
+        lastScrollY = currentScrollY;
+      }
       
       // Clear existing timeout
       if (scrollTimeout) clearTimeout(scrollTimeout);
@@ -706,8 +729,10 @@
       // Resume animation after scrolling stops
       scrollTimeout = setTimeout(() => {
         isScrolling = false;
-        lastScrollY = window.scrollY;
-      }, 150); // Wait 150ms after last scroll event
+        // Restore animTime from where we froze it
+        animTime = frozenAnimTime;
+        lastAnimTime = 0; // Reset to allow smooth continuation
+      }, 200); // Wait 200ms after last scroll event
     }
     
     // Handle resize
@@ -799,31 +824,75 @@
     updateAsciiHeight();
     
     // Force fixed positioning (in case CSS isn't working due to containing blocks)
-    if (!isIndexPage && asciiBg) {
+    if (!isIndexPage && asciiCanvas) {
       // Ensure it's truly fixed to viewport
-      asciiBg.style.position = 'fixed';
-      asciiBg.style.top = '0';
-      asciiBg.style.left = '0';
-      asciiBg.style.right = '0';
-      asciiBg.style.zIndex = '-1';
+      asciiCanvas.style.position = 'fixed';
+      asciiCanvas.style.top = '0';
+      asciiCanvas.style.left = '0';
+      asciiCanvas.style.right = '0';
+      asciiCanvas.style.zIndex = '-1';
     }
     
-    // Start animation after a brief delay to ensure layout is ready
-    // This is especially important for non-index pages where container size matters
-    setTimeout(() => {
+    // Initialize and start animation
+    function initializeAndStart() {
+      // Remeasure character size (important on mobile where fonts might load later)
+      charSize = measureCharSize();
+      CHAR_W = charSize.width;
+      CHAR_H = charSize.height;
+      
       // Update height again after layout is ready
       updateAsciiHeight();
       
-      // Recalculate grid size in case container dimensions changed
+      // Recalculate grid size
       const newSize = getGridSize();
       cols = newSize.cols;
       rows = newSize.rows;
       
-      // Reinitialize blobs with new dimensions
-      initializeBlobs();
-      
-      requestAnimationFrame(animate);
-    }, 50);
+      // Ensure we have valid dimensions
+      if (cols > 0 && rows > 0 && CHAR_W > 0 && CHAR_H > 0) {
+        // Reinitialize blobs with new dimensions
+        initializeBlobs();
+        
+        // Render immediately to show something
+        render();
+        
+        // Start animation - always start if not already running
+        animating = true;
+        // Always start the animation loop
+        requestAnimationFrame(animate);
+      } else {
+        // Retry if dimensions are invalid (might happen on mobile)
+        setTimeout(initializeAndStart, 100);
+      }
+    }
+    
+    // Start animation after a brief delay to ensure layout is ready
+    // This is especially important for non-index pages and mobile devices
+    setTimeout(initializeAndStart, 50);
+    
+    // Also retry on window load (for mobile where fonts might load late)
+    if (document.readyState === 'loading') {
+      window.addEventListener('load', () => {
+        setTimeout(initializeAndStart, 100);
+      });
+    } else {
+      // Already loaded, try again after a short delay
+      setTimeout(initializeAndStart, 150);
+    }
+    
+    // For index page, also try to start immediately if dimensions are already valid
+    if (isIndexPage) {
+      // Quick check - if we can get dimensions immediately, start right away
+      const quickSize = getGridSize();
+      if (quickSize.cols > 0 && quickSize.rows > 0 && CHAR_W > 0 && CHAR_H > 0) {
+        cols = quickSize.cols;
+        rows = quickSize.rows;
+        initializeBlobs();
+        render();
+        animating = true;
+        requestAnimationFrame(animate);
+      }
+    }
     
     // Pause animation when tab is hidden (performance)
     document.addEventListener('visibilitychange', () => {

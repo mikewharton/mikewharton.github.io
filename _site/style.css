@@ -374,7 +374,7 @@ body:not([data-page="index"]) #site-main {
 /* mobile dropdown panel */
 @media (max-width: 720px) {
 
-  body.nav-open { overflow: hidden; }
+  /* Allow scrolling when nav is open - removed overflow: hidden */
 
   .nav-toggle { 
     display: flex; 
@@ -408,6 +408,26 @@ body:not([data-page="index"]) #site-main {
     position: relative;
   }
 
+  /* Backdrop overlay when nav is open */
+  body.nav-open::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 198;
+    opacity: 1;
+    transition: opacity 200ms ease;
+    pointer-events: auto;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body.nav-open::before {
+      background: rgba(0, 0, 0, 0.7);
+    }
+  }
+
   .nav-list {
     position: absolute;
     top: calc(100% + 4px);
@@ -417,15 +437,15 @@ body:not([data-page="index"]) #site-main {
     flex-direction: column;
     width: auto;
     min-width: 0;
-    padding: .8rem 0 env(safe-area-inset-bottom);
+    padding: .8rem 0.75rem env(safe-area-inset-bottom) 0.75rem;
     margin: 0;
     list-style: none;
     gap: 0;
-    background: linear-gradient(180deg, rgba(255,255,255,.62), rgba(255,255,255,.50));
-    backdrop-filter: blur(10px) saturate(110%);
-    -webkit-backdrop-filter: blur(10px) saturate(110%);
+    background: linear-gradient(180deg, rgba(255,255,255,.95), rgba(255,255,255,.90));
+    backdrop-filter: blur(20px) saturate(120%);
+    -webkit-backdrop-filter: blur(20px) saturate(120%);
     border: 1px solid var(--glass-border);
-    box-shadow: var(--glass-shadow);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.15), 0 2px 8px rgba(0,0,0,0.1);
     border-radius: 12px;
     overflow: hidden;
     z-index: 199;
@@ -434,11 +454,17 @@ body:not([data-page="index"]) #site-main {
     max-height: 0;
     overflow: hidden;
     opacity: 0;
-    transform: translateY(-8px);
     pointer-events: none;
-    transition: max-height 280ms ease, opacity 200ms ease, transform 200ms ease;
+    transition: max-height 280ms ease, opacity 200ms ease;
     overscroll-behavior: contain;
     -webkit-overflow-scrolling: touch;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .nav-list {
+      background: linear-gradient(180deg, rgba(20,20,20,.95), rgba(15,15,15,.90));
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5), 0 2px 8px rgba(0,0,0,0.3);
+    }
   }
 
   .nav-list li {
@@ -449,19 +475,19 @@ body:not([data-page="index"]) #site-main {
   .nav-list.show {
     max-height: calc(100dvh - var(--header-h) - env(safe-area-inset-top));
     overflow-y: auto;
-    padding: 1rem 0.75rem env(safe-area-inset-bottom) 0.75rem;
+    padding: 1.2rem 0.75rem env(safe-area-inset-bottom) 0.75rem;
     opacity: 1;
-    transform: translateY(0);
     pointer-events: auto;
+    transition: max-height 280ms ease, opacity 200ms ease;
   }
 
   .nav-list a,
   .nav-dropdown-toggle {
     display: block;
-    padding: .75rem calc(1rem + env(safe-area-inset-right)) .75rem calc(1rem + env(safe-area-inset-left));
+    padding: 1rem calc(1rem + env(safe-area-inset-right)) 1rem calc(1rem + env(safe-area-inset-left));
     color: var(--text);
     border-radius: 8px;
-    font-size: .95rem;
+    font-size: 1.05rem;
     width: 100%;
     text-align: left;
     background: none;
@@ -469,7 +495,7 @@ body:not([data-page="index"]) #site-main {
     font-family: inherit;
     cursor: pointer;
     box-sizing: border-box;
-    margin: 0.3rem 0.5rem;
+    margin: 0.4rem 0.5rem;
     width: calc(100% - 1rem);
     transition: background .2s ease;
   }
@@ -535,12 +561,12 @@ body:not([data-page="index"]) #site-main {
   }
 
   .nav-dropdown.show {
-    padding: 0.75rem 0;
+    padding: 0.5rem 0;
     max-height: 360px;
     opacity: 1;
     transform: translateY(0);
     overflow: visible;
-    background: rgba(0,0,0,0.02);
+    background: rgba(0,0,0,0.03);
     border-radius: 0 0 8px 8px;
     margin: 0 0.5rem 0.3rem 0.5rem;
     width: calc(100% - 1rem);
@@ -573,12 +599,12 @@ body:not([data-page="index"]) #site-main {
   }
 
   .nav-dropdown a {
-    padding: .6rem calc(1rem + env(safe-area-inset-right)) .6rem calc(2rem + env(safe-area-inset-left));
+    padding: .5rem calc(1rem + env(safe-area-inset-right)) .5rem calc(2rem + env(safe-area-inset-left));
     font-size: .9rem;
     display: block;
     box-sizing: border-box;
-    border-radius: 10px;
-    margin: 0.3rem 0.5rem;
+    border-radius: 8px;
+    margin: 0.2rem 0.5rem;
     width: calc(100% - 1rem);
     transition: background .2s ease;
     overflow: hidden;
