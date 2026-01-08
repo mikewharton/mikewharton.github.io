@@ -56,6 +56,30 @@ module.exports = function (eleventyConfig) {
     return String(value || "").replace(/^\/+|\/+$/g, "");
   });
 
+  // Filter to get unique values from an array
+  eleventyConfig.addFilter("unique", function (array) {
+    if (!Array.isArray(array)) return [];
+    return [...new Set(array)];
+  });
+
+  // Filter to push an item to an array
+  eleventyConfig.addFilter("push", function (array, item) {
+    if (!Array.isArray(array)) return [item];
+    return [...array, item];
+  });
+
+  // Filter to extract all unique keywords from a collection of posts
+  eleventyConfig.addFilter("getAllKeywords", function (posts) {
+    if (!Array.isArray(posts)) return [];
+    const keywords = new Set();
+    posts.forEach(post => {
+      if (post.data && post.data.keywords && Array.isArray(post.data.keywords)) {
+        post.data.keywords.forEach(keyword => keywords.add(keyword));
+      }
+    });
+    return Array.from(keywords).sort();
+  });
+
   return {
     // This ensures eleventy uses the pathPrefix when building URLs
     pathPrefix: pathPrefix,

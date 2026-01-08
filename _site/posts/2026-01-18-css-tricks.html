@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Photography — Mike Wharton</title>
+  <title>Advanced CSS Techniques and Tricks</title>
 
   <!-- Favicon and static assets use pathPrefix so project/user pages both work -->
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -43,47 +43,24 @@
 
   <main id="site-main">
     <section class="hero">
-      <h1 class="hero-title">Photography</h1>
-      
-        <p class="hero-sub">Selected photos (side project).</p>
+      <h1 class="hero-title">Advanced CSS Techniques and Tricks</h1>
       
     </section>
 
     
-<section class="stack">
+<section class="stack post">
   <div class="card">
-    <h2>Selected photos</h2>
-    <p class="lede">
-      Replace the placeholder images in <code>assets/photos/</code> with JPG or WebP files when ready.
-    </p>
-  </div>
+    <p>CSS has evolved dramatically over the years. Here are some advanced techniques that can help you build more sophisticated layouts and effects.</p>
+<h2>CSS Grid and Flexbox</h2>
+<p>Modern layout techniques like Grid and Flexbox have revolutionized how we structure web pages. Understanding when to use each is key.</p>
+<h2>Custom Properties (CSS Variables)</h2>
+<p>CSS custom properties enable dynamic theming and make it easier to maintain consistent design systems across large projects.</p>
+<h2>Backdrop Filters</h2>
+<p>The <code>backdrop-filter</code> property enables glass-morphism effects that were previously difficult to achieve. It's perfect for modern, translucent UI elements.</p>
+<h2>Container Queries</h2>
+<p>Container queries allow us to style elements based on their container size, not just the viewport. This enables more modular, component-based responsive design.</p>
+<p>These techniques are just the beginning. CSS continues to evolve, offering new possibilities for creative web design.</p>
 
-  <div class="photo-grid" aria-label="Photography gallery">
-    <div class="photo-tile" data-full="/assets/photos/photo-01.svg">
-      <img loading="lazy" src="/assets/photos/photo-01.svg" alt="Photo 1">
-    </div>
-    <div class="photo-tile" data-full="/assets/photos/photo-02.svg">
-      <img loading="lazy" src="/assets/photos/photo-02.svg" alt="Photo 2">
-    </div>
-    <div class="photo-tile" data-full="/assets/photos/photo-03.svg">
-      <img loading="lazy" src="/assets/photos/photo-03.svg" alt="Photo 3">
-    </div>
-    <div class="photo-tile" data-full="/assets/photos/photo-04.svg">
-      <img loading="lazy" src="/assets/photos/photo-04.svg" alt="Photo 4">
-    </div>
-    <div class="photo-tile" data-full="/assets/photos/photo-05.svg">
-      <img loading="lazy" src="/assets/photos/photo-05.svg" alt="Photo 5">
-    </div>
-    <div class="photo-tile" data-full="/assets/photos/photo-06.svg">
-      <img loading="lazy" src="/assets/photos/photo-06.svg" alt="Photo 6">
-    </div>
-  </div>
-
-  <div class="lightbox" role="dialog" aria-hidden="true">
-    <button class="close" aria-label="Close">✕</button>
-    <div class="lightbox-container">
-      <img src="" alt="">
-    </div>
   </div>
 </section>
 

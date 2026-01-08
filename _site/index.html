@@ -7,13 +7,12 @@
 
   <!-- Favicon and static assets use pathPrefix so project/user pages both work -->
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/style.css">
   <script src="/script.js" defer></script>
 </head>
-<body>
+<body data-page="index">
+  <pre id="ascii-canvas" class="ascii-bg"></pre>
+
   <header id="site-header" class="nav-plain" role="banner" aria-label="Site navigation">
   <div class="nav-inner">
     <a class="brand" href="/index.html" aria-label="Home">
@@ -44,36 +43,31 @@
 
   <main id="site-main">
     <section class="hero">
-      <h1 class="hero-title">DPhil student at the University of Oxford</h1>
+      <h1 class="hero-title">Hello there</h1>
       
         <p class="hero-sub">Autonomous intelligent machines and systems.</p>
       
     </section>
 
     
-<div class="ascii-bg" id="ascii-bg">
-  <pre id="ascii-canvas"></pre>
-</div>
-
 <section class="stack">
-  <div class="card">
-    <div class="profile">
-      
-      <img
-        src="/assets/research/robust-visual-nav.svg"
-        alt="Portrait placeholder (replace with a photo of you)"
-        width="120"
-        height="120">
+  <div class="card intro-card">
+    
+    <img
+      class="intro-portrait"
+      src="/assets/research/robust-visual-nav.svg"
+      alt="Portrait placeholder (replace with a photo of you)"
+      width="120"
+      height="120">
 
-      <div style="max-width:48ch;text-align:left;">
-        <p style="margin-top:0;">
-          I’m a DPhil student at the University of Oxford working on autonomous intelligent machines and systems.
-          This site collects research, notes, and selected side projects.
-        </p>
-        <p style="margin:0;">
-          Email: <a href="mailto:you@example.org">you@example.org</a>
-        </p>
-      </div>
+    <div class="intro-text">
+      <p>
+        I'm a DPhil student at the University of Oxford working on autonomous intelligent machines and systems.
+        This site collects research, notes, and selected side projects.
+      </p>
+      <p>
+        Email: <a href="mailto:you@example.org">you@example.org</a>
+      </p>
     </div>
   </div>
 
@@ -130,6 +124,7 @@
   <div class="footer-inner">
     <p>(c) <span id="copyright-year"></span> Mike Miroslav Wharton</p>
     <p><a href="https://www.linkedin.com/">LinkedIn</a> &nbsp; <a href="https://github.com/">GitHub</a></p>
+    <!-- <p><a href="/cv.pdf" download>Download CV</a></p> -->
   </div>
 </footer>
 

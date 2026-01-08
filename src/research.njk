@@ -7,42 +7,116 @@ permalink: /research.html
 ---
 
 <section class="stack">
-  <p class="lede">
-    Each tile uses the “rounded rectangle + dark overlay + hover brighten/zoom” effect.
-    Replace the placeholder covers in <code>{{ pathPrefix }}assets/research/</code>.
-  </p>
+  {% if collections.research and collections.research | length > 0 %}
+    {# Get all research projects sorted by date (newest first) #}
+    {% set sortedResearch = collections.research | sort(true, true, "date") %}
+    {% set featuredResearch = sortedResearch | slice(0, 3) %}
+    {% set otherResearch = sortedResearch | slice(3) %}
 
-  <div class="research-grid">
-    <a class="research-card" href="{{ pathPrefix }}research/project-robust-visual-nav.html" aria-label="Robust Visual Navigation in Clutter">
-      <div class="img" style="background-image:url('{{ pathPrefix }}assets/research/robust-visual-nav.svg');"></div>
-      <div class="overlay"></div>
-      <div class="meta">
-        <div class="kicker">Project · Navigation</div>
-        <h3>Robust Visual Navigation in Clutter</h3>
-        <div style="margin-top:.4rem;font-size:.85rem;opacity:.9;">2024 · paper + code</div>
+    {# Featured research projects as cards with images #}
+    {% if featuredResearch | length > 0 %}
+      <div class="research-featured">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="research-grid">
+          {%- for project in featuredResearch -%}
+            <a class="research-card{% if not project.data.image %} research-card-no-image{% endif %}" 
+               href="{{ project.url }}" 
+               aria-label="{{ project.data.title }}"
+               data-keywords="{% if project.data.keywords %}{{ project.data.keywords | join(',') | lower }}{% endif %}">
+              {% if project.data.image %}
+                <div class="img" style="background-image:url('{{ pathPrefix }}assets/research/{{ project.data.image }}');"></div>
+                <div class="overlay"></div>
+              {% endif %}
+              <div class="meta">
+                {% if project.data.kicker %}
+                  <div class="kicker">{{ project.data.kicker }}</div>
+                {% elif project.data.keywords %}
+                  <div class="kicker">{{ project.data.keywords | slice(0, 2) | join(' · ') }}</div>
+                {% endif %}
+                <h3>{{ project.data.title }}</h3>
+                {% if project.data.year or project.data.status %}
+                  <div style="margin-top:.4rem;font-size:.85rem;opacity:.9;">
+                    {% if project.data.year %}{{ project.data.year }}{% endif %}
+                    {% if project.data.year and project.data.status %} · {% endif %}
+                    {% if project.data.status %}{{ project.data.status }}{% endif %}
+                  </div>
+                {% endif %}
+              </div>
+            </a>
+          {%- endfor -%}
+        </div>
       </div>
-    </a>
+    {% endif %}
 
-    <a class="research-card" href="#" aria-label="Data-driven Sim-to-Real Transfer">
-      <div class="img" style="background-image:url('{{ pathPrefix }}assets/research/sim-to-real.svg');"></div>
-      <div class="overlay"></div>
-      <div class="meta">
-        <div class="kicker">Paper · Sim-to-real</div>
-        <h3>Data-driven Sim-to-Real Transfer</h3>
-        <div style="margin-top:.4rem;font-size:.85rem;opacity:.9;">2023 · preprint</div>
-      </div>
-    </a>
+    {# Filter and list section for all research #}
+    <div class="card research-list-section">
+      <h2>All Research</h2>
+      
+      {# Get all unique keywords from all research projects #}
+      {% set allKeywords = sortedResearch | getAllKeywords %}
 
-    <a class="research-card" href="#" aria-label="Learning-Based Control notes">
-      <div class="img" style="background-image:url('{{ pathPrefix }}assets/research/learning-control.svg');"></div>
-      <div class="overlay"></div>
-      <div class="meta">
-        <div class="kicker">Notes · Control</div>
-        <h3>Learning-Based Control: Practical Notebook</h3>
-        <div style="margin-top:.4rem;font-size:.85rem;opacity:.9;">Living notes</div>
-      </div>
-    </a>
-  </div>
+      {# Filter UI #}
+      {% if allKeywords | length > 0 %}
+        <div class="research-filter">
+          <label for="research-search" class="research-filter-label">Search:</label>
+          <input type="text" id="research-search" class="research-filter-input" placeholder="Search research...">
+          
+          <div class="research-filter-tags">
+            <button class="research-filter-tag active" data-filter="all">All</button>
+            {%- for keyword in allKeywords -%}
+              <button class="research-filter-tag" data-filter="{{ keyword | lower }}">{{ keyword }}</button>
+            {%- endfor -%}
+          </div>
+        </div>
+      {% else %}
+        <div class="research-filter">
+          <label for="research-search" class="research-filter-label">Search:</label>
+          <input type="text" id="research-search" class="research-filter-input" placeholder="Search research...">
+        </div>
+      {% endif %}
+
+      {# Research list #}
+      <ul class="research-list" id="research-list">
+        {%- for project in sortedResearch -%}
+          <li class="research-list-item" 
+              data-keywords="{% if project.data.keywords %}{{ project.data.keywords | join(',') | lower }}{% endif %}"
+              data-title="{{ project.data.title | lower }}"
+              data-description="{% if project.data.description %}{{ project.data.description | lower }}{% endif %}">
+            <a href="{{ project.url }}" class="research-list-link">
+              <div class="research-list-content">
+                <div class="research-list-main">
+                  <span class="research-list-title">{{ project.data.title }}</span>
+                  {% if project.data.year or project.data.status %}
+                    <span class="research-list-meta">
+                      {% if project.data.year %}{{ project.data.year }}{% endif %}
+                      {% if project.data.year and project.data.status %} · {% endif %}
+                      {% if project.data.status %}{{ project.data.status }}{% endif %}
+                    </span>
+                  {% endif %}
+                </div>
+                {% if project.data.description %}
+                  <p class="research-list-description">{{ project.data.description }}</p>
+                {% endif %}
+              </div>
+            </a>
+            {% if project.data.keywords and project.data.keywords | length > 0 %}
+              <div class="research-list-tags">
+                {%- for keyword in project.data.keywords -%}
+                  <span class="research-tag research-tag-small">{{ keyword }}</span>
+                {%- endfor -%}
+              </div>
+            {% endif %}
+          </li>
+        {%- endfor -%}
+      </ul>
+
+      <p class="research-no-results" id="research-no-results" style="display: none;">No research projects found matching your filters.</p>
+    </div>
+  {% else %}
+    <div class="card">
+      <p>No research projects found. Place Markdown files in <code>src/research/</code>.</p>
+    </div>
+  {% endif %}
 
   <div class="card">
     <h2>Links</h2>

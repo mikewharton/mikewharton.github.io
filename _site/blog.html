@@ -7,13 +7,12 @@
 
   <!-- Favicon and static assets use pathPrefix so project/user pages both work -->
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/style.css">
   <script src="/script.js" defer></script>
 </head>
 <body>
+  <pre id="ascii-canvas" class="ascii-bg"></pre>
+
   <header id="site-header" class="nav-plain" role="banner" aria-label="Site navigation">
   <div class="nav-inner">
     <a class="brand" href="/index.html" aria-label="Home">
@@ -52,25 +51,116 @@
 
     
 <section class="stack">
-  <div class="card">
-    <h2>Posts</h2>
+  
+    
+    
+    
+    
 
     
     
-      <ul><li>
-            <a href="/posts/2026-01-08-welcome2.html">Welcome &amp; site notes 2</a><br>
-            <small>9 January 2026</small>
-          </li><li>
-            <a href="/posts/2026-01-08-welcome.html">Welcome &amp; site notes</a><br>
-            <small>8 January 2026</small>
+
+    
+    <div class="card blog-list-section">
+      <h2>All Posts</h2>
+      
+      
+      
+
+      
+      
+        <div class="blog-filter">
+          <label for="blog-search" class="blog-filter-label">Search:</label>
+          <input type="text" id="blog-search" class="blog-filter-input" placeholder="Search posts...">
+          
+          <div class="blog-filter-tags">
+            <button class="blog-filter-tag active" data-filter="all">All</button><button class="blog-filter-tag" data-filter="announcement">announcement</button><button class="blog-filter-tag" data-filter="css">css</button><button class="blog-filter-tag" data-filter="design">design</button><button class="blog-filter-tag" data-filter="eleventy">eleventy</button><button class="blog-filter-tag" data-filter="machine learning">machine learning</button><button class="blog-filter-tag" data-filter="markdown">markdown</button><button class="blog-filter-tag" data-filter="reflection">reflection</button><button class="blog-filter-tag" data-filter="research">research</button><button class="blog-filter-tag" data-filter="robotics">robotics</button><button class="blog-filter-tag" data-filter="site">site</button><button class="blog-filter-tag" data-filter="static sites">static sites</button><button class="blog-filter-tag" data-filter="tutorial">tutorial</button><button class="blog-filter-tag" data-filter="ui/ux">ui/ux</button><button class="blog-filter-tag" data-filter="update">update</button><button class="blog-filter-tag" data-filter="web development">web development</button><button class="blog-filter-tag" data-filter="writing">writing</button></div>
+        </div>
+      
+
+      
+      <ul class="blog-list" id="blog-list"><li class="blog-list-item" 
+              data-keywords="web development,css,tutorial,design"
+              data-title="advanced css techniques and tricks"
+              data-description="a collection of advanced css techniques for creating modern, responsive web designs.">
+            <a href="/posts/2026-01-18-css-tricks.html" class="blog-list-link">
+              <span class="blog-list-title">Advanced CSS Techniques and Tricks</span>
+              <span class="blog-list-date">18 Jan 2026</span>
+            </a>
+            
+              <div class="blog-list-tags"><span class="blog-tag blog-tag-small">web development</span><span class="blog-tag blog-tag-small">css</span><span class="blog-tag blog-tag-small">tutorial</span><span class="blog-tag blog-tag-small">design</span></div>
+            
+          </li><li class="blog-list-item" 
+              data-keywords="web development,tutorial,eleventy,static sites"
+              data-title="building modern static sites with eleventy"
+              data-description="a deep dive into building fast, modern static websites using eleventy and modern web technologies.">
+            <a href="/posts/2026-01-15-building-static-sites.html" class="blog-list-link">
+              <span class="blog-list-title">Building Modern Static Sites with Eleventy</span>
+              <span class="blog-list-date">15 Jan 2026</span>
+            </a>
+            
+              <div class="blog-list-tags"><span class="blog-tag blog-tag-small">web development</span><span class="blog-tag blog-tag-small">tutorial</span><span class="blog-tag blog-tag-small">eleventy</span><span class="blog-tag blog-tag-small">static sites</span></div>
+            
+          </li><li class="blog-list-item" 
+              data-keywords="research,machine learning,robotics"
+              data-title="recent research updates and findings"
+              data-description="an overview of recent research progress in machine learning and robotics applications.">
+            <a href="/posts/2026-01-12-research-update.html" class="blog-list-link">
+              <span class="blog-list-title">Recent Research Updates and Findings</span>
+              <span class="blog-list-date">12 Jan 2026</span>
+            </a>
+            
+              <div class="blog-list-tags"><span class="blog-tag blog-tag-small">research</span><span class="blog-tag blog-tag-small">machine learning</span><span class="blog-tag blog-tag-small">robotics</span></div>
+            
+          </li><li class="blog-list-item" 
+              data-keywords="design,ui/ux,web development"
+              data-title="design principles for modern web interfaces"
+              data-description="exploring key design principles that make web interfaces both beautiful and functional.">
+            <a href="/posts/2026-01-10-design-principles.html" class="blog-list-link">
+              <span class="blog-list-title">Design Principles for Modern Web Interfaces</span>
+              <span class="blog-list-date">10 Jan 2026</span>
+            </a>
+            
+              <div class="blog-list-tags"><span class="blog-tag blog-tag-small">design</span><span class="blog-tag blog-tag-small">ui/ux</span><span class="blog-tag blog-tag-small">web development</span></div>
+            
+          </li><li class="blog-list-item" 
+              data-keywords="tutorial,markdown,writing"
+              data-title="getting started with markdown"
+              data-description="a quick guide to writing content in markdown format for blogs and documentation.">
+            <a href="/posts/2026-01-09-getting-started-markdown.html" class="blog-list-link">
+              <span class="blog-list-title">Getting Started with Markdown</span>
+              <span class="blog-list-date">9 Jan 2026</span>
+            </a>
+            
+              <div class="blog-list-tags"><span class="blog-tag blog-tag-small">tutorial</span><span class="blog-tag blog-tag-small">markdown</span><span class="blog-tag blog-tag-small">writing</span></div>
+            
+          </li><li class="blog-list-item" 
+              data-keywords="announcement,site,update"
+              data-title="welcome &amp; site notes"
+              data-description="a starter post introducing the site and its features.">
+            <a href="/posts/2026-01-08-welcome.html" class="blog-list-link">
+              <span class="blog-list-title">Welcome &amp; site notes</span>
+              <span class="blog-list-date">8 Jan 2026</span>
+            </a>
+            
+              <div class="blog-list-tags"><span class="blog-tag blog-tag-small">announcement</span><span class="blog-tag blog-tag-small">site</span><span class="blog-tag blog-tag-small">update</span></div>
+            
+          </li><li class="blog-list-item" 
+              data-keywords="announcement,update,reflection"
+              data-title="2025 year in review"
+              data-description="looking back at the highlights and achievements from the past year.">
+            <a href="/posts/2026-01-05-year-in-review.html" class="blog-list-link">
+              <span class="blog-list-title">2025 Year in Review</span>
+              <span class="blog-list-date">5 Jan 2026</span>
+            </a>
+            
+              <div class="blog-list-tags"><span class="blog-tag blog-tag-small">announcement</span><span class="blog-tag blog-tag-small">update</span><span class="blog-tag blog-tag-small">reflection</span></div>
+            
           </li></ul>
-    
-  </div>
 
-  <div class="card">
-    <h2>Easier authoring (recommended)</h2>
-    <p class="lede">If you want Markdown posts and automatic blog indexes, place posts in <code>src/posts/</code> (or update your Eleventy collections to point to <code>src/blog/</code> if you prefer that folder name). Eleventy will generate the index above automatically.</p>
-  </div>
+      <p class="blog-no-results" id="blog-no-results" style="display: none;">No posts found matching your filters.</p>
+    </div>
+  
 </section>
 
   </main>
@@ -79,6 +169,7 @@
   <div class="footer-inner">
     <p>(c) <span id="copyright-year"></span> Mike Miroslav Wharton</p>
     <p><a href="https://www.linkedin.com/">LinkedIn</a> &nbsp; <a href="https://github.com/">GitHub</a></p>
+    <!-- <p><a href="/cv.pdf" download>Download CV</a></p> -->
   </div>
 </footer>
 

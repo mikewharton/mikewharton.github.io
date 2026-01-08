@@ -7,13 +7,12 @@
 
   <!-- Favicon and static assets use pathPrefix so project/user pages both work -->
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/style.css">
   <script src="/script.js" defer></script>
 </head>
 <body>
+  <pre id="ascii-canvas" class="ascii-bg"></pre>
+
   <header id="site-header" class="nav-plain" role="banner" aria-label="Site navigation">
   <div class="nav-inner">
     <a class="brand" href="/index.html" aria-label="Home">
@@ -52,42 +51,183 @@
 
     
 <section class="stack">
-  <p class="lede">
-    Each tile uses the “rounded rectangle + dark overlay + hover brighten/zoom” effect.
-    Replace the placeholder covers in <code>/assets/research/</code>.
-  </p>
+  
+    
+    
+    
+    
 
-  <div class="research-grid">
-    <a class="research-card" href="/research/project-robust-visual-nav.html" aria-label="Robust Visual Navigation in Clutter">
-      <div class="img" style="background-image:url('/assets/research/robust-visual-nav.svg');"></div>
-      <div class="overlay"></div>
-      <div class="meta">
-        <div class="kicker">Project · Navigation</div>
-        <h3>Robust Visual Navigation in Clutter</h3>
-        <div style="margin-top:.4rem;font-size:.85rem;opacity:.9;">2024 · paper + code</div>
-      </div>
-    </a>
+    
+    
 
-    <a class="research-card" href="#" aria-label="Data-driven Sim-to-Real Transfer">
-      <div class="img" style="background-image:url('/assets/research/sim-to-real.svg');"></div>
-      <div class="overlay"></div>
-      <div class="meta">
-        <div class="kicker">Paper · Sim-to-real</div>
-        <h3>Data-driven Sim-to-Real Transfer</h3>
-        <div style="margin-top:.4rem;font-size:.85rem;opacity:.9;">2023 · preprint</div>
-      </div>
-    </a>
+    
+    <div class="card research-list-section">
+      <h2>All Research</h2>
+      
+      
+      
 
-    <a class="research-card" href="#" aria-label="Learning-Based Control notes">
-      <div class="img" style="background-image:url('/assets/research/learning-control.svg');"></div>
-      <div class="overlay"></div>
-      <div class="meta">
-        <div class="kicker">Notes · Control</div>
-        <h3>Learning-Based Control: Practical Notebook</h3>
-        <div style="margin-top:.4rem;font-size:.85rem;opacity:.9;">Living notes</div>
-      </div>
-    </a>
-  </div>
+      
+      
+        <div class="research-filter">
+          <label for="research-search" class="research-filter-label">Search:</label>
+          <input type="text" id="research-search" class="research-filter-input" placeholder="Search research...">
+          
+          <div class="research-filter-tags">
+            <button class="research-filter-tag active" data-filter="all">All</button><button class="research-filter-tag" data-filter="computer vision">computer vision</button><button class="research-filter-tag" data-filter="control">control</button><button class="research-filter-tag" data-filter="coordination">coordination</button><button class="research-filter-tag" data-filter="deep learning">deep learning</button><button class="research-filter-tag" data-filter="distributed systems">distributed systems</button><button class="research-filter-tag" data-filter="haptics">haptics</button><button class="research-filter-tag" data-filter="machine learning">machine learning</button><button class="research-filter-tag" data-filter="manipulation">manipulation</button><button class="research-filter-tag" data-filter="multi-robot">multi-robot</button><button class="research-filter-tag" data-filter="navigation">navigation</button><button class="research-filter-tag" data-filter="notes">notes</button><button class="research-filter-tag" data-filter="robotics">robotics</button><button class="research-filter-tag" data-filter="safety">safety</button><button class="research-filter-tag" data-filter="sim-to-real">sim-to-real</button><button class="research-filter-tag" data-filter="tactile sensing">tactile sensing</button><button class="research-filter-tag" data-filter="transfer learning">transfer learning</button><button class="research-filter-tag" data-filter="uncertainty">uncertainty</button></div>
+        </div>
+      
+
+      
+      <ul class="research-list" id="research-list"><li class="research-list-item" 
+              data-keywords="multi-robot,coordination,distributed systems,machine learning"
+              data-title="multi-robot coordination via distributed learning"
+              data-description="a distributed learning framework for coordinating teams of robots in complex, dynamic environments.">
+            <a href="/research/multi-robot-coordination.html" class="research-list-link">
+              <div class="research-list-content">
+                <div class="research-list-main">
+                  <span class="research-list-title">Multi-Robot Coordination via Distributed Learning</span>
+                  
+                    <span class="research-list-meta">
+                      2024
+                       · 
+                      in progress
+                    </span>
+                  
+                </div>
+                
+                  <p class="research-list-description">A distributed learning framework for coordinating teams of robots in complex, dynamic environments.</p>
+                
+              </div>
+            </a>
+            
+              <div class="research-list-tags"><span class="research-tag research-tag-small">multi-robot</span><span class="research-tag research-tag-small">coordination</span><span class="research-tag research-tag-small">distributed systems</span><span class="research-tag research-tag-small">machine learning</span></div>
+            
+          </li><li class="research-list-item" 
+              data-keywords="uncertainty,deep learning,robotics,safety"
+              data-title="uncertainty estimation in deep robotic policies"
+              data-description="methods for estimating and leveraging uncertainty in deep learning policies for safer robotic deployment.">
+            <a href="/research/uncertainty-estimation.html" class="research-list-link">
+              <div class="research-list-content">
+                <div class="research-list-main">
+                  <span class="research-list-title">Uncertainty Estimation in Deep Robotic Policies</span>
+                  
+                    <span class="research-list-meta">
+                      2024
+                       · 
+                      under review
+                    </span>
+                  
+                </div>
+                
+                  <p class="research-list-description">Methods for estimating and leveraging uncertainty in deep learning policies for safer robotic deployment.</p>
+                
+              </div>
+            </a>
+            
+              <div class="research-list-tags"><span class="research-tag research-tag-small">uncertainty</span><span class="research-tag research-tag-small">deep learning</span><span class="research-tag research-tag-small">robotics</span><span class="research-tag research-tag-small">safety</span></div>
+            
+          </li><li class="research-list-item" 
+              data-keywords="control,machine learning,robotics,notes"
+              data-title="learning-based control: practical notebook"
+              data-description="living notes on practical approaches to learning-based control systems for robotic applications.">
+            <a href="/research/learning-based-control.html" class="research-list-link">
+              <div class="research-list-content">
+                <div class="research-list-main">
+                  <span class="research-list-title">Learning-Based Control: Practical Notebook</span>
+                  
+                    <span class="research-list-meta">
+                      2024
+                       · 
+                      Living notes
+                    </span>
+                  
+                </div>
+                
+                  <p class="research-list-description">Living notes on practical approaches to learning-based control systems for robotic applications.</p>
+                
+              </div>
+            </a>
+            
+              <div class="research-list-tags"><span class="research-tag research-tag-small">control</span><span class="research-tag research-tag-small">machine learning</span><span class="research-tag research-tag-small">robotics</span><span class="research-tag research-tag-small">notes</span></div>
+            
+          </li><li class="research-list-item" 
+              data-keywords="navigation,robotics,computer vision,machine learning"
+              data-title="robust visual navigation in clutter"
+              data-description="a novel approach to visual navigation that maintains robustness in cluttered environments using learned visual features.">
+            <a href="/research/project-robust-visual-nav.html" class="research-list-link">
+              <div class="research-list-content">
+                <div class="research-list-main">
+                  <span class="research-list-title">Robust Visual Navigation in Clutter</span>
+                  
+                    <span class="research-list-meta">
+                      2024
+                       · 
+                      paper + code
+                    </span>
+                  
+                </div>
+                
+                  <p class="research-list-description">A novel approach to visual navigation that maintains robustness in cluttered environments using learned visual features.</p>
+                
+              </div>
+            </a>
+            
+              <div class="research-list-tags"><span class="research-tag research-tag-small">navigation</span><span class="research-tag research-tag-small">robotics</span><span class="research-tag research-tag-small">computer vision</span><span class="research-tag research-tag-small">machine learning</span></div>
+            
+          </li><li class="research-list-item" 
+              data-keywords="manipulation,tactile sensing,robotics,haptics"
+              data-title="adaptive manipulation with tactile feedback"
+              data-description="using tactile feedback to enable adaptive manipulation strategies for handling objects with unknown properties.">
+            <a href="/research/adaptive-manipulation.html" class="research-list-link">
+              <div class="research-list-content">
+                <div class="research-list-main">
+                  <span class="research-list-title">Adaptive Manipulation with Tactile Feedback</span>
+                  
+                    <span class="research-list-meta">
+                      2023
+                       · 
+                      published
+                    </span>
+                  
+                </div>
+                
+                  <p class="research-list-description">Using tactile feedback to enable adaptive manipulation strategies for handling objects with unknown properties.</p>
+                
+              </div>
+            </a>
+            
+              <div class="research-list-tags"><span class="research-tag research-tag-small">manipulation</span><span class="research-tag research-tag-small">tactile sensing</span><span class="research-tag research-tag-small">robotics</span><span class="research-tag research-tag-small">haptics</span></div>
+            
+          </li><li class="research-list-item" 
+              data-keywords="sim-to-real,robotics,machine learning,transfer learning"
+              data-title="data-driven sim-to-real transfer"
+              data-description="bridging the simulation-to-reality gap using data-driven domain adaptation techniques for robotic manipulation tasks.">
+            <a href="/research/sim-to-real-transfer.html" class="research-list-link">
+              <div class="research-list-content">
+                <div class="research-list-main">
+                  <span class="research-list-title">Data-driven Sim-to-Real Transfer</span>
+                  
+                    <span class="research-list-meta">
+                      2023
+                       · 
+                      preprint
+                    </span>
+                  
+                </div>
+                
+                  <p class="research-list-description">Bridging the simulation-to-reality gap using data-driven domain adaptation techniques for robotic manipulation tasks.</p>
+                
+              </div>
+            </a>
+            
+              <div class="research-list-tags"><span class="research-tag research-tag-small">sim-to-real</span><span class="research-tag research-tag-small">robotics</span><span class="research-tag research-tag-small">machine learning</span><span class="research-tag research-tag-small">transfer learning</span></div>
+            
+          </li></ul>
+
+      <p class="research-no-results" id="research-no-results" style="display: none;">No research projects found matching your filters.</p>
+    </div>
+  
 
   <div class="card">
     <h2>Links</h2>
@@ -105,6 +245,7 @@
   <div class="footer-inner">
     <p>(c) <span id="copyright-year"></span> Mike Miroslav Wharton</p>
     <p><a href="https://www.linkedin.com/">LinkedIn</a> &nbsp; <a href="https://github.com/">GitHub</a></p>
+    <!-- <p><a href="/cv.pdf" download>Download CV</a></p> -->
   </div>
 </footer>
 

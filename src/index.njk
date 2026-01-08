@@ -1,34 +1,29 @@
 ---
 title: "Mike Wharton — Home"
 layout: layouts/base.njk
-hero_title: "DPhil student at the University of Oxford"
+hero_title: "Hello there"
 hero_sub: "Autonomous intelligent machines and systems."
 permalink: /index.html
 ---
 
-<div class="ascii-bg" id="ascii-bg">
-  <pre id="ascii-canvas"></pre>
-</div>
-
 <section class="stack">
-  <div class="card">
-    <div class="profile">
-      {# Replace with a real portrait if you want (optional) #}
-      <img
-        src="{{ pathPrefix }}assets/research/robust-visual-nav.svg"
-        alt="Portrait placeholder (replace with a photo of you)"
-        width="120"
-        height="120">
+  <div class="card intro-card">
+    {# Replace with a real portrait if you want (optional) #}
+    <img
+      class="intro-portrait"
+      src="{{ pathPrefix }}assets/research/robust-visual-nav.svg"
+      alt="Portrait placeholder (replace with a photo of you)"
+      width="120"
+      height="120">
 
-      <div style="max-width:48ch;text-align:left;">
-        <p style="margin-top:0;">
-          I’m a DPhil student at the University of Oxford working on autonomous intelligent machines and systems.
-          This site collects research, notes, and selected side projects.
-        </p>
-        <p style="margin:0;">
-          Email: <a href="mailto:you@example.org">you@example.org</a>
-        </p>
-      </div>
+    <div class="intro-text">
+      <p>
+        I'm a DPhil student at the University of Oxford working on autonomous intelligent machines and systems.
+        This site collects research, notes, and selected side projects.
+      </p>
+      <p>
+        Email: <a href="mailto:you@example.org">you@example.org</a>
+      </p>
     </div>
   </div>
 
