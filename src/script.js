@@ -915,6 +915,7 @@
 
 })();
 
+/* ---------- Announcements pagination ---------- */
 (function () {
   const list = document.getElementById('announcements-list');
   const newerBtn = document.getElementById('announcements-newer');
@@ -922,6 +923,7 @@
   if (!list || !newerBtn || !olderBtn) return;
 
   const BATCH = 3;
+  const STEP = 1;
   const items = Array.from(list.querySelectorAll('[data-announcement]'));
   const total = items.length;
 
@@ -941,15 +943,16 @@
 
   newerBtn.addEventListener('click', () => {
     if (start === 0) return;
-    start = Math.max(0, start - BATCH);
+    start = Math.max(0, start - STEP);
     render();
   });
 
   olderBtn.addEventListener('click', () => {
     if (start + BATCH >= total) return;
-    start = Math.min(total - BATCH, start + BATCH);
+    start = Math.min(total - BATCH, start + STEP);
     render();
   });
+
 
   // init
   if (total <= BATCH) {
