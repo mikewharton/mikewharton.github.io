@@ -1578,22 +1578,29 @@ body:not([data-page="index"]) #ascii-canvas {
   font-size: .8rem;
 }
 
-.announcement-item.is-hidden { display: none !important; }
+.announcement-item.is-hidden {
+  display: none !important;
+}
 
-.announcements-more button {
+/* Navigation links */
+.announcements-nav {
+  margin: .25rem 0;
+}
+
+.announcements-nav button {
+  justify-content: center;
   all: unset;
   cursor: pointer;
   color: var(--accent);
-  font-size: .9rem;
-  line-height: 1.2;
+  font-size: .85rem;
 }
 
-.announcements-more button:hover {
+.announcements-nav button:hover {
   text-decoration: underline;
 }
 
-.announcements-more button:focus-visible {
-  outline: 2px solid var(--darkreader-text--accent);
-  outline-offset: 2px;
+.announcements-nav button[disabled] {
+  opacity: .4;
+  cursor: default;
+  text-decoration: none;
 }
-
