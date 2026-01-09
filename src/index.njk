@@ -33,20 +33,22 @@ permalink: /index.html
       <p>Projects, publications and notes.</p>
       <p style="margin-top:.75rem;">
         <a href="{{ pathPrefix }}research.html">Open research</a> ·
-        <a href="https://scholar.google.com/">Google Scholar</a> ·
-        <a href="https://orcid.org/">ORCID</a>
+        <a href="{{ site.gScholar }}">Google Scholar</a> ·
+        <a href="{{ site.orcid }}">ORCID</a>
       </p>
     </div>
 
-    <div class="card">
+    <!-- <div class="card">
       <h2>Latest</h2>
       <p>Updates and longer posts live in the blog.</p>
       <p style="margin-top:.75rem;">
         <a href="{{ pathPrefix }}blog.html">Open the blog</a>
       </p>
-    </div>
+    </div> -->
+
   </div>
 
+  <!-- Announcements -->
   {% set total = collections.announcements | length %}
 
   <div class="card announcements-card">
@@ -75,12 +77,12 @@ permalink: /index.html
       <p class="muted small">No announcements.</p>
     {% endif %}
   </div>
-
+  <!-- End Announcements -->
 
   <div class="side-grid">
     <div class="side-tile">
       <h3>Music</h3>
-      <p>Experiments and recordings. Low-key, occasional updates.</p>
+      <p>Some of my performances.</p>
       <p style="margin-top:.6rem;">
         <a href="{{ pathPrefix }}music.html">Browse music</a>
       </p>
@@ -88,7 +90,7 @@ permalink: /index.html
 
     <div class="side-tile">
       <h3>Art</h3>
-      <p>Sketches, generative pieces and small studies.</p>
+      <p>asd</p>
       <p style="margin-top:.6rem;">
         <a href="{{ pathPrefix }}art.html">Browse art</a>
       </p>
@@ -96,7 +98,7 @@ permalink: /index.html
 
     <div class="side-tile">
       <h3>Photography</h3>
-      <p>Selected photos; click any image to enlarge.</p>
+      <p>asd</p>
       <p style="margin-top:.6rem;">
         <a href="{{ pathPrefix }}photography.html">Browse photography</a>
       </p>
