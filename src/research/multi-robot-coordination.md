@@ -8,6 +8,8 @@ description: "A distributed learning framework for coordinating teams of robots 
 kicker: "Project · Multi-Robot"
 year: "2024"
 status: "in progress"
+featured: true
+feature_image: "10a.jpg"
 ---
 
 ## Summary

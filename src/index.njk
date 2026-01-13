@@ -29,10 +29,10 @@ permalink: /index.html
 
   <div class="grid-2">
     <div class="card">
-      <h2>Research</h2>
-      <p>Projects, publications and notes.</p>
+      <h2>Research and projects</h2>
+      <p>A meandering overview of all my meaningful projects to date.</p>
       <p style="margin-top:.75rem;">
-        <a href="{{ pathPrefix }}research.html">Open research</a> ·
+        <a href="{{ pathPrefix }}research.html">See More</a> ·
         <a href="{{ site.gScholar }}">Google Scholar</a> ·
         <a href="{{ site.orcid }}">ORCID</a>
       </p>
@@ -51,38 +51,40 @@ permalink: /index.html
   <!-- Announcements -->
   {% set total = collections.announcements | length %}
 
-  <div class="card announcements-card">
-    <h2 class="card-title">Announcements</h2>
+  <div class="grid-2">
+    <div class="card">
+      <h2>Announcements</h2>
 
-    {% if total > 0 %}
-      <div class="announcements-nav">
-        <button type="button" id="announcements-newer" aria-label="Newer announcements">Newer</button>
-      </div>
+      {% if total > 0 %}
+        <div class="announcements-nav">
+          <button type="button" id="announcements-newer" aria-label="Newer announcements">Newer</button>
+        </div>
 
-      <ul class="announcements-list" id="announcements-list">
-        {# newest first #}
-        {% for i in range(total - 1, -1, -1) %}
-          {% set ann = collections.announcements[i] %}
-          <li class="announcement-item" data-announcement>
-            <div class="announce-title">{{ ann.data.title }}</div>
-            <small class="muted">{{ ann.date | date("d MMM yyyy") }}</small>
-          </li>
-        {% endfor %}
-      </ul>
+        <ul class="announcements-list" id="announcements-list">
+          {# newest first #}
+          {% for i in range(total - 1, -1, -1) %}
+            {% set ann = collections.announcements[i] %}
+            <li class="announcement-item" data-announcement>
+              <div class="announce-title">{{ ann.data.title }}</div>
+              <small class="muted">{{ ann.date | date("d MMM yyyy") }}</small>
+            </li>
+          {% endfor %}
+        </ul>
 
-      <div class="announcements-nav">
-        <button type="button" id="announcements-older" aria-label="Older announcements">Older</button>
-      </div>
-    {% else %}
-      <p class="muted small">No announcements.</p>
-    {% endif %}
+        <div class="announcements-nav">
+          <button type="button" id="announcements-older" aria-label="Older announcements">Older</button>
+        </div>
+      {% else %}
+        <p class="muted small">No announcements.</p>
+      {% endif %}
+    </div>
   </div>
   <!-- End Announcements -->
 
   <div class="side-grid">
     <div class="side-tile">
       <h3>Music</h3>
-      <p>Some of my performances.</p>
+      <p>Experience playing in orchestras and ensembles.</p>
       <p style="margin-top:.6rem;">
         <a href="{{ pathPrefix }}music.html">Browse music</a>
       </p>
@@ -90,7 +92,7 @@ permalink: /index.html
 
     <div class="side-tile">
       <h3>Art</h3>
-      <p>asd</p>
+      <p>Mostly oil paints and charcoal with some mixed media work.</p>
       <p style="margin-top:.6rem;">
         <a href="{{ pathPrefix }}art.html">Browse art</a>
       </p>
@@ -98,7 +100,7 @@ permalink: /index.html
 
     <div class="side-tile">
       <h3>Photography</h3>
-      <p>asd</p>
+      <p>Landscapes, streets, and portraits.</p>
       <p style="margin-top:.6rem;">
         <a href="{{ pathPrefix }}photography.html">Browse photography</a>
       </p>

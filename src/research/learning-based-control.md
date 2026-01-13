@@ -1,33 +1,32 @@
 ---
-title: "Learning-Based Control: Practical Notebook"
-date: 2024-03-10
-layout: layouts/posts.njk
-permalink: /research/learning-based-control.html
-keywords: ["control", "machine learning", "robotics", "notes"]
-description: "Living notes on practical approaches to learning-based control systems for robotic applications."
-image: "learning-control.svg"
-kicker: "Notes · Control"
-year: "2024"
-status: "Living notes"
+title: "Learning Control Policies from Sparse Feedback"
+kicker: "Preprint"
+year: 2026
+status: "In progress"
+description: "Learning control policies from sparse human feedback with stability guarantees."
+tags:
+  - control
+  - reinforcement learning
+  - human feedback
+date: 2026-01-10
+permalink: "/research/learning-control-policies/"
+featured: true
+feature_image: "10a.jpg"
 ---
 
-## Overview
+A short summary of the project goes here. Keep it to 2–4 sentences.
 
-This is a collection of practical notes and insights on implementing learning-based control systems. It covers both theoretical foundations and hands-on implementation details.
+## What this is
+- One line on the problem.
+- One line on the approach.
+- One line on the key outcome/claim.
 
-## Topics Covered
+## Highlights
+- First highlight (e.g. “Works with sparse feedback signals”).
+- Second highlight (e.g. “Stable in closed-loop simulations”).
+- Third highlight (e.g. “Open-source implementation planned”).
 
-- Model-based vs model-free approaches
-- Policy gradient methods
-- Imitation learning techniques
-- Safety considerations in learned controllers
-
-## Practical Examples
-
-The notebook includes working code examples and case studies from real robotic systems. Each example is designed to be immediately applicable to new projects.
-
-## Resources
-
-- [GitHub Repository](#)
-- [Interactive Notebooks](#)
-- [Video Tutorials](#)
+## Links
+- Paper: (add link)
+- Code: (add link)
+- Dataset: (add link)

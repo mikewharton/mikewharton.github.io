@@ -9,6 +9,8 @@ image: "sim-to-real.svg"
 kicker: "Paper · Manipulation"
 year: "2023"
 status: "published"
+featured: true
+feature_image: "10a.jpg"
 ---
 
 ## Summary

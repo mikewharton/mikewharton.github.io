@@ -21,6 +21,18 @@ module.exports = function (eleventyConfig) {
     return collectionApi.getFilteredByGlob("src/research/**/*.md");
   });
 
+  // Featured research (front matter: featured: true)
+  // Always defined (empty array if none) so templates can safely do:
+  // {% set featured = collections.featuredResearch | slice(0,4) %}
+  eleventyConfig.addCollection("featuredResearch", function (collectionApi) {
+    return collectionApi
+      .getFilteredByGlob("src/research/**/*.md")
+      .filter((item) => item && item.data && item.data.featured === true)
+      // Newest first (falls back to 0 if date missing)
+      .sort((a, b) => ((b.date && b.date.getTime && b.date.getTime()) || 0) - ((a.date && a.date.getTime && a.date.getTime()) || 0));
+  });
+
+
   eleventyConfig.addCollection("announcements", function (collectionApi) {
     return collectionApi
       .getFilteredByGlob("src/announcements/**/*.md")
@@ -106,3 +118,4 @@ module.exports = function (eleventyConfig) {
     templateFormats: ["html", "md", "njk"]
   };
 };
+
