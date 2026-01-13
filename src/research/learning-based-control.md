@@ -1,6 +1,7 @@
 ---
 title: "Learning Control Policies from Sparse Feedback"
 kicker: "Preprint"
+layout: layouts/posts.njk
 year: 2026
 status: "In progress"
 description: "Learning control policies from sparse human feedback with stability guarantees."
