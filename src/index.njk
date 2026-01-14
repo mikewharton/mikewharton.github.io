@@ -48,8 +48,8 @@ permalink: /
 
   </div>
 
-  <!-- Announcements -->
-  {% set total = collections.announcements | length %}
+  {% set anns = announcements or [] %}
+  {% set total = anns | length %}
 
   <div class="grid-2">
     <div class="card">
@@ -62,10 +62,10 @@ permalink: /
 
         <ul class="announcements-list" id="announcements-list">
           {# newest first #}
-          {% for i in range(total - 1, -1, -1) %}
-            {% set ann = collections.announcements[i] %}
+          {% set sorted = anns | sort(attribute="date") | reverse %}
+          {% for ann in sorted %}
             <li class="announcement-item" data-announcement>
-              <div class="announce-title">{{ ann.data.title }}</div>
+              <div class="announce-title">{{ ann.title }}</div>
               <small class="muted">{{ ann.date | date("d MMM yyyy") }}</small>
             </li>
           {% endfor %}
@@ -79,7 +79,6 @@ permalink: /
       {% endif %}
     </div>
   </div>
-  <!-- End Announcements -->
 
   <div class="side-grid">
     <div class="side-tile">

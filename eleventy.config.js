@@ -1,8 +1,13 @@
 /** @type {import("@11ty/eleventy").UserConfig} */
 const path = require("path");
 const glob = require("glob");
+const yaml = require("js-yaml");
+const fs = require("fs");
 
 module.exports = function (eleventyConfig) {
+  eleventyConfig.addDataExtension("yml", contents => yaml.load(contents));
+  eleventyConfig.addDataExtension("yaml", contents => yaml.load(contents));
+
   // ---------------------------------------------------------------------------
   // Path prefix (GitHub Pages support)
   // ---------------------------------------------------------------------------
@@ -16,6 +21,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/style.css");
   eleventyConfig.addPassthroughCopy("src/script.js");
   eleventyConfig.addPassthroughCopy("src/favicon.svg");
+  eleventyConfig.addPassthroughCopy("src/research");
 
   // ---------------------------------------------------------------------------
   // Content collections
@@ -35,11 +41,29 @@ module.exports = function (eleventyConfig) {
       .sort((a, b) => (b.date || 0) - (a.date || 0))
   );
 
-  eleventyConfig.addCollection("announcements", (collectionApi) =>
-    collectionApi
-      .getFilteredByGlob("src/announcements/**/*.md")
-      .sort((a, b) => a.date - b.date)
-  );
+  // ---------------------------------------------------------------------------
+  // Per-page computed gallery images (research posts)
+  // ---------------------------------------------------------------------------
+  eleventyConfig.addGlobalData("eleventyComputed", {
+    galleryImages: (data) => {
+      if (!data.page?.inputPath) return [];
+
+      // Only apply to research posts
+      if (!data.page.inputPath.includes("/research/")) return [];
+
+      const dir = path.dirname(data.page.inputPath);
+      if (!fs.existsSync(dir)) return [];
+
+      return fs.readdirSync(dir)
+        .filter(f => /\.(png|jpe?g|webp|gif|svg)$/i.test(f))
+        .filter(f => !/^hero|^cover/i.test(f))
+        .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }))
+        .map(img => ({
+          src: data.page.url.replace(/\/$/, "") + "/" + img,
+          alt: img.replace(/[-_]/g, " ").replace(/\.\w+$/, "")
+        }));
+    }
+  });
 
   // ---------------------------------------------------------------------------
   // Music images collection (gallery)
@@ -86,23 +110,48 @@ module.exports = function (eleventyConfig) {
   // ---------------------------------------------------------------------------
   // Filters
   // ---------------------------------------------------------------------------
-  eleventyConfig.addFilter("date", (dateInput, format = "d MMMM yyyy", locale = "en-GB") => {
-    if (!dateInput) return "";
-    const d = dateInput instanceof Date ? dateInput : new Date(dateInput);
-    if (isNaN(d)) return "";
+  eleventyConfig.addFilter(
+    "date",
+    (dateInput, format = "d MMMM yyyy", locale = "en-GB") => {
+      if (!dateInput) return "";
 
-    if (format === "d MMMM yyyy") {
-      return d.toLocaleDateString(locale, { day: "numeric", month: "long", year: "numeric" });
-    }
-    if (format === "d MMM yyyy" || format === "d MMM, yyyy") {
-      return d.toLocaleDateString(locale, { day: "numeric", month: "short", year: "numeric" });
-    }
-    if (format === "yyyy") {
-      return String(d.getFullYear());
-    }
+      // Handle YYYY-MM (month + year only)
+      if (typeof dateInput === "string" && /^\d{4}-\d{2}$/.test(dateInput)) {
+        const [year, month] = dateInput.split("-");
+        const d = new Date(Number(year), Number(month) - 1, 1);
 
-    return d.toLocaleDateString(locale);
-  });
+        return d.toLocaleDateString(locale, {
+          month: "long",
+          year: "numeric"
+        });
+      }
+
+      const d = dateInput instanceof Date ? dateInput : new Date(dateInput);
+      if (isNaN(d)) return "";
+
+      if (format === "d MMMM yyyy") {
+        return d.toLocaleDateString(locale, {
+          day: "numeric",
+          month: "long",
+          year: "numeric"
+        });
+      }
+
+      if (format === "d MMM yyyy" || format === "d MMM, yyyy") {
+        return d.toLocaleDateString(locale, {
+          day: "numeric",
+          month: "long",
+          year: "numeric"
+        });
+      }
+
+      if (format === "yyyy") {
+        return String(d.getFullYear());
+      }
+
+      return d.toLocaleDateString(locale);
+    }
+  );
 
   eleventyConfig.addFilter("stripSlashes", (value) =>
     String(value || "").replace(/^\/+|\/+$/g, "")
@@ -135,6 +184,7 @@ module.exports = function (eleventyConfig) {
     }
     return shuffled;
   });
+
 
 
   // ---------------------------------------------------------------------------

@@ -6,4 +6,18 @@ layout: layouts/base.njk
   <div class="card">
     {{ content | safe }}
   </div>
+
+  {% if galleryImages and galleryImages.length %}
+    <div class="photo-grid" aria-label="Research gallery">
+      {% for img in galleryImages %}
+        <div class="photo-tile" data-full="{{ img.src }}">
+          <img
+            loading="lazy"
+            src="{{ img.src }}"
+            alt="{{ img.alt | title }}"
+          >
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
 </section>
