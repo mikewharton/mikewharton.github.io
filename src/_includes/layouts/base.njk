@@ -26,6 +26,13 @@
     {{ content | safe }}
   </main>
 
+  <div class="lightbox" role="dialog" aria-hidden="true">
+    <button class="close" aria-label="Close">✕</button>
+    <div class="lightbox-container">
+      <img src="" alt="">
+    </div>
+  </div>
+
   {% include "footer.njk" %}
 </body>
 </html>

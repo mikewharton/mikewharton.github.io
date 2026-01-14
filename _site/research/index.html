@@ -3,34 +3,43 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Research</title>
+  <title>Research — Mike Wharton</title>
 
   <!-- Favicon and static assets use pathPrefix so project/user pages both work -->
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/script.js" defer></script>
 </head>
 <body>
+  <pre id="ascii-canvas" class="ascii-bg"></pre>
+
   <header id="site-header" class="nav-plain" role="banner" aria-label="Site navigation">
   <div class="nav-inner">
-    <a class="brand" href="index.html" aria-label="Home">MW</a>
+    <a class="brand" href="/index" aria-label="Home">
+      <span class="brand-full">Mike Miroslav Wharton</span>
+      <span class="brand-short">Mike Wharton</span>
+    </a>
 
-    <button class="nav-toggle" aria-controls="primary-nav" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="nav-toggle" aria-controls="nav-list" aria-expanded="false" aria-label="Toggle navigation">
       <span class="bar"></span><span class="bar"></span><span class="bar"></span>
     </button>
 
     <nav id="primary-nav" role="navigation" aria-label="Primary">
       <ul class="nav-list" id="nav-list">
-        <li><a href="research.html">Research</a></li>
-        <li><a href="music.html">Music</a></li>
-        <li><a href="art.html">Art</a></li>
-        <li><a href="photography.html">Photography</a></li>
-        <li><a href="blog.html">Blog</a></li>
+        <li><a href="/research">Research</a></li>
+        <li>
+          <button class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Other</button>
+          <ul class="nav-dropdown">
+            <li><a href="/music">Music</a></li>
+            <li><a href="/art">Art</a></li>
+            <li><a href="/photography">Photography</a></li>
+          </ul>
+        </li>
+        <li><a href="/blog">Blog</a></li>
       </ul>
     </nav>
   </div>
 </header>
-
 
   <main id="site-main">
     <section class="hero">
@@ -40,26 +49,283 @@
       
     </section>
 
-    <p class="lede">Intro text...</p>
-<div class="research-grid">
-  <a class="research-card" href="research/project-robust-visual-nav.html">
-    <div class="img" style="background-image:url('assets/research/robust-visual-nav.svg');"></div>
-    <div class="overlay"></div>
-    <div class="meta">
-      <div class="kicker">Project · Navigation</div>
-      <h3>Robust Visual Navigation in Clutter</h3>
-      <div style="margin-top:.4rem;font-size:.85rem;opacity:.9;">2024 · paper + code</div>
+    
+<section class="stack">
+
+  <div class="card">
+    
+    
+
+    <div class="research-featured">
+      <h2>Highlighted work</h2>
+
+      <div class="featured-grid">
+          
+          
+            
+          
+          
+          <div
+            class="featured-tile featured-hero"
+            aria-label="Learning Control Policies from Sparse Feedback"
+            style="--tile-bg: url('/assets/photos/research/10a.jpg');"
+          >
+            <div class="featured-inner">
+              <div class="kicker">Preprint</div>
+              <h3 class="featured-title-hero">
+                Learning Control Policies from Sparse Feedback
+              </h3>
+
+              <div class="muted small featured-meta">
+                2026 · In progress
+              </div>
+
+              <a class="featured-cta" href="/research/learning-control-policies/">Read more</a>
+            </div>
+          </div>
+          
+          
+            
+          
+          
+          <div
+            class="featured-tile featured-small"
+            aria-label="Multi-Robot Coordination via Distributed Learning"
+            style="--tile-bg: url('/assets/photos/research/10a.jpg');"
+          >
+            <div class="featured-inner">
+              <div class="kicker">Project · Multi-Robot</div>
+              <h3 class="featured-title">
+                Multi-Robot Coordination via Distributed Learning
+              </h3>
+
+              <div class="muted small featured-meta">
+                2024 · in progress
+              </div>
+
+              <a class="featured-cta" href="/research/multi-robot-coordination.html">Read more</a>
+            </div>
+          </div>
+          
+          
+            
+          
+          
+          <div
+            class="featured-tile featured-small"
+            aria-label="Adaptive Manipulation with Tactile Feedback"
+            style="--tile-bg: url('/assets/photos/research/10a.jpg');"
+          >
+            <div class="featured-inner">
+              <div class="kicker">Paper · Manipulation</div>
+              <h3 class="featured-title">
+                Adaptive Manipulation with Tactile Feedback
+              </h3>
+
+              <div class="muted small featured-meta">
+                2023 · published
+              </div>
+
+              <a class="featured-cta" href="/research/adaptive-manipulation.html">Read more</a>
+            </div>
+          </div></div>
     </div>
-  </a>
-  <!-- more cards -->
-</div>
+  </div>
+
+  
+  
+  
+    
+    <div class="card research-list-section">
+      <h2>All Research</h2>
+      
+      
+      
+
+      
+      
+        <div class="research-filter">
+          <label for="research-search" class="research-filter-label">Search:</label>
+          <input type="text" id="research-search" class="research-filter-input" placeholder="Search research...">
+          
+          <div class="research-filter-tags">
+            <button class="research-filter-tag active" data-filter="all">All</button><button class="research-filter-tag" data-filter="computer vision">computer vision</button><button class="research-filter-tag" data-filter="coordination">coordination</button><button class="research-filter-tag" data-filter="deep learning">deep learning</button><button class="research-filter-tag" data-filter="distributed systems">distributed systems</button><button class="research-filter-tag" data-filter="haptics">haptics</button><button class="research-filter-tag" data-filter="machine learning">machine learning</button><button class="research-filter-tag" data-filter="manipulation">manipulation</button><button class="research-filter-tag" data-filter="multi-robot">multi-robot</button><button class="research-filter-tag" data-filter="navigation">navigation</button><button class="research-filter-tag" data-filter="robotics">robotics</button><button class="research-filter-tag" data-filter="safety">safety</button><button class="research-filter-tag" data-filter="sim-to-real">sim-to-real</button><button class="research-filter-tag" data-filter="tactile sensing">tactile sensing</button><button class="research-filter-tag" data-filter="transfer learning">transfer learning</button><button class="research-filter-tag" data-filter="uncertainty">uncertainty</button></div>
+        </div>
+      
+
+      
+      <ul class="research-list" id="research-list"><li class="research-list-item" 
+              data-keywords=""
+              data-title="learning control policies from sparse feedback"
+              data-description="learning control policies from sparse human feedback with stability guarantees.">
+            <a href="/research/learning-control-policies/" class="research-list-link">
+              <div class="research-list-content">
+                <div class="research-list-main">
+                  <span class="research-list-title">Learning Control Policies from Sparse Feedback</span>
+                  
+                    <span class="research-list-meta">
+                      2026
+                       · 
+                      In progress
+                    </span>
+                  
+                </div>
+                
+                  <p class="research-list-description">Learning control policies from sparse human feedback with stability guarantees.</p>
+                
+              </div>
+            </a>
+            
+          </li><li class="research-list-item" 
+              data-keywords="navigation,robotics,computer vision,machine learning"
+              data-title="robust visual navigation in clutter"
+              data-description="a novel approach to visual navigation that maintains robustness in cluttered environments using learned visual features.">
+            <a href="/research/project-robust-visual-nav.html" class="research-list-link">
+              <div class="research-list-content">
+                <div class="research-list-main">
+                  <span class="research-list-title">Robust Visual Navigation in Clutter</span>
+                  
+                    <span class="research-list-meta">
+                      2024
+                       · 
+                      paper + code
+                    </span>
+                  
+                </div>
+                
+                  <p class="research-list-description">A novel approach to visual navigation that maintains robustness in cluttered environments using learned visual features.</p>
+                
+              </div>
+            </a>
+            
+              <div class="research-list-tags"><span class="research-tag research-tag-small">navigation</span><span class="research-tag research-tag-small">robotics</span><span class="research-tag research-tag-small">computer vision</span><span class="research-tag research-tag-small">machine learning</span></div>
+            
+          </li><li class="research-list-item" 
+              data-keywords="uncertainty,deep learning,robotics,safety"
+              data-title="uncertainty estimation in deep robotic policies"
+              data-description="methods for estimating and leveraging uncertainty in deep learning policies for safer robotic deployment.">
+            <a href="/research/uncertainty-estimation.html" class="research-list-link">
+              <div class="research-list-content">
+                <div class="research-list-main">
+                  <span class="research-list-title">Uncertainty Estimation in Deep Robotic Policies</span>
+                  
+                    <span class="research-list-meta">
+                      2024
+                       · 
+                      under review
+                    </span>
+                  
+                </div>
+                
+                  <p class="research-list-description">Methods for estimating and leveraging uncertainty in deep learning policies for safer robotic deployment.</p>
+                
+              </div>
+            </a>
+            
+              <div class="research-list-tags"><span class="research-tag research-tag-small">uncertainty</span><span class="research-tag research-tag-small">deep learning</span><span class="research-tag research-tag-small">robotics</span><span class="research-tag research-tag-small">safety</span></div>
+            
+          </li><li class="research-list-item" 
+              data-keywords="multi-robot,coordination,distributed systems,machine learning"
+              data-title="multi-robot coordination via distributed learning"
+              data-description="a distributed learning framework for coordinating teams of robots in complex, dynamic environments.">
+            <a href="/research/multi-robot-coordination.html" class="research-list-link">
+              <div class="research-list-content">
+                <div class="research-list-main">
+                  <span class="research-list-title">Multi-Robot Coordination via Distributed Learning</span>
+                  
+                    <span class="research-list-meta">
+                      2024
+                       · 
+                      in progress
+                    </span>
+                  
+                </div>
+                
+                  <p class="research-list-description">A distributed learning framework for coordinating teams of robots in complex, dynamic environments.</p>
+                
+              </div>
+            </a>
+            
+              <div class="research-list-tags"><span class="research-tag research-tag-small">multi-robot</span><span class="research-tag research-tag-small">coordination</span><span class="research-tag research-tag-small">distributed systems</span><span class="research-tag research-tag-small">machine learning</span></div>
+            
+          </li><li class="research-list-item" 
+              data-keywords="sim-to-real,robotics,machine learning,transfer learning"
+              data-title="data-driven sim-to-real transfer"
+              data-description="bridging the simulation-to-reality gap using data-driven domain adaptation techniques for robotic manipulation tasks.">
+            <a href="/research/sim-to-real-transfer.html" class="research-list-link">
+              <div class="research-list-content">
+                <div class="research-list-main">
+                  <span class="research-list-title">Data-driven Sim-to-Real Transfer</span>
+                  
+                    <span class="research-list-meta">
+                      2023
+                       · 
+                      preprint
+                    </span>
+                  
+                </div>
+                
+                  <p class="research-list-description">Bridging the simulation-to-reality gap using data-driven domain adaptation techniques for robotic manipulation tasks.</p>
+                
+              </div>
+            </a>
+            
+              <div class="research-list-tags"><span class="research-tag research-tag-small">sim-to-real</span><span class="research-tag research-tag-small">robotics</span><span class="research-tag research-tag-small">machine learning</span><span class="research-tag research-tag-small">transfer learning</span></div>
+            
+          </li><li class="research-list-item" 
+              data-keywords="manipulation,tactile sensing,robotics,haptics"
+              data-title="adaptive manipulation with tactile feedback"
+              data-description="using tactile feedback to enable adaptive manipulation strategies for handling objects with unknown properties.">
+            <a href="/research/adaptive-manipulation.html" class="research-list-link">
+              <div class="research-list-content">
+                <div class="research-list-main">
+                  <span class="research-list-title">Adaptive Manipulation with Tactile Feedback</span>
+                  
+                    <span class="research-list-meta">
+                      2023
+                       · 
+                      published
+                    </span>
+                  
+                </div>
+                
+                  <p class="research-list-description">Using tactile feedback to enable adaptive manipulation strategies for handling objects with unknown properties.</p>
+                
+              </div>
+            </a>
+            
+              <div class="research-list-tags"><span class="research-tag research-tag-small">manipulation</span><span class="research-tag research-tag-small">tactile sensing</span><span class="research-tag research-tag-small">robotics</span><span class="research-tag research-tag-small">haptics</span></div>
+            
+          </li></ul>
+
+      <p class="research-no-results" id="research-no-results" style="display: none;">No research projects found matching your filters.</p>
+    </div>
+  
+
+  <div class="card">
+    <h2>Links</h2>
+    <p>
+      <a href="https://scholar.google.com/citations?user=qhMP8mgAAAAJ">Google Scholar</a> ·
+      <a href="https://orcid.org/0009-0007-1173-2919">ORCID</a> ·
+      <a href="https://github.com/mikewharton">GitHub</a>
+    </p>
+  </div>
+</section>
 
   </main>
 
+  <div class="lightbox" role="dialog" aria-hidden="true">
+    <button class="close" aria-label="Close">✕</button>
+    <div class="lightbox-container">
+      <img src="" alt="">
+    </div>
+  </div>
+
   <footer role="contentinfo">
   <div class="footer-inner">
-    <p>(c) <span id="copyright-year"></span> Mike Wharton</p>
-    <p><a href="https://www.linkedin.com/">LinkedIn</a> &nbsp; <a href="https://github.com/">GitHub</a></p>
+    <p>(c) <span id="copyright-year"></span> Mike Miroslav Wharton</p>
+    <p><a href="https://www.linkedin.com/in/mikemwharton">LinkedIn</a> &nbsp; <a href="https://github.com/mikewharton">GitHub</a></p>
+    <!-- <p><a href="/cv.pdf" download>Download CV</a></p> -->
   </div>
 </footer>
 

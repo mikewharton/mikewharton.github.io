@@ -3,7 +3,7 @@ title: "Research — Mike Wharton"
 layout: layouts/base.njk
 hero_title: "Research"
 hero_sub: "Projects, publications and notes."
-permalink: /research.html
+permalink: /research/
 ---
 
 <section class="stack">
@@ -13,19 +13,18 @@ permalink: /research.html
     {% set featured = allFeatured .slice(0, 3) %}
 
     <div class="research-featured">
-      <h2 class="section-title">Highlighted work</h2>
+      <h2>Highlighted work</h2>
 
       <div class="featured-grid">
         {%- for project in featured -%}
           {% set img = project.data.feature_image or project.data.image %}
           {% set bg = '' %}
           {% if img %}
-            {% set bg = pathPrefix ~ 'assets/research/' ~ img %}
+            {% set bg = pathPrefix ~ 'assets/photos/research/' ~ img %}
           {% endif %}
-
-          <a
+          
+          <div
             class="featured-tile {% if loop.index0 == 0 %}featured-hero{% else %}featured-small{% endif %}{% if not img %} featured-noimg{% endif %}"
-            href="{{ project.url }}"
             aria-label="{{ project.data.title }}"
             {% if bg %}style="--tile-bg: url('{{ bg }}');"{% endif %}
           >
@@ -39,86 +38,17 @@ permalink: /research.html
                 {{ project.data.year }}{% if project.data.status %} · {{ project.data.status }}{% endif %}
               </div>
 
-              <span class="featured-cta">Read more</span>
+              <a class="featured-cta" href="{{ project.url }}">Read more</a>
             </div>
-          </a>
+          </div>
         {%- endfor -%}
       </div>
     </div>
   </div>
 
-  <!-- <div class="card">
-
-    {% set featured = collections.featuredResearch .slice(0,4) %}
-    <div class="research-featured">
-      <h2 class="section-title">Highlighted work</h2>
-
-      <div class="research-grid">
-        {%- for project in featured -%}
-          <a class="research-card{% if not (project.data.feature_image or project.data.image) %} research-card-no-image{% endif %}"
-            href="{{ project.url }}" aria-label="{{ project.data.title }}">
-            {% set img = project.data.feature_image or project.data.image %}
-            {% if img %}
-              <div class="research-img-wrap">
-                <img src="{{ pathPrefix }}assets/research/{{ img }}"
-                    alt="{{ project.data.title }} — image"
-                    loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;">
-              </div>
-            {% endif %}
-            <div class="meta">
-              {% if project.data.kicker %}<div class="kicker">{{ project.data.kicker }}</div>{% endif %}
-              <h3>{{ project.data.title }}</h3>
-              <div class="muted small">{{ project.data.year }}{% if project.data.status %} · {{ project.data.status }}{% endif %}</div>
-            </div>
-          </a>
-        {%- endfor -%}
-      </div>
-    </div>
-
-  </div> -->
-
-
   {% if collections.research and collections.research | length > 0 %}
-    {# Get all research projects sorted by date (newest first) #}
-    {% set sortedResearch = collections.research | sort(true, true, "date") %}
-    {% set featuredResearch = sortedResearch | slice(0, 3) %}
-    {% set otherResearch = sortedResearch | slice(3) %}
-
-    {# Featured research projects as cards with images #}
-    {% if featuredResearch | length > 0 %}
-      <div class="research-featured">
-        <h2 class="section-title">Featured Projects</h2>
-        <div class="research-grid">
-          {%- for project in featuredResearch -%}
-            <a class="research-card{% if not project.data.image %} research-card-no-image{% endif %}" 
-               href="{{ project.url }}" 
-               aria-label="{{ project.data.title }}"
-               data-keywords="{% if project.data.keywords %}{{ project.data.keywords | join(',') | lower }}{% endif %}">
-              {% if project.data.image %}
-                <div class="img" style="background-image:url('{{ pathPrefix }}assets/research/{{ project.data.image }}');"></div>
-                <div class="overlay"></div>
-              {% endif %}
-              <div class="meta">
-                {% if project.data.kicker %}
-                  <div class="kicker">{{ project.data.kicker }}</div>
-                {% elif project.data.keywords %}
-                  <div class="kicker">{{ project.data.keywords | slice(0, 2) | join(' · ') }}</div>
-                {% endif %}
-                <h3>{{ project.data.title }}</h3>
-                {% if project.data.year or project.data.status %}
-                  <div style="margin-top:.4rem;font-size:.85rem;opacity:.9;">
-                    {% if project.data.year %}{{ project.data.year }}{% endif %}
-                    {% if project.data.year and project.data.status %} · {% endif %}
-                    {% if project.data.status %}{{ project.data.status }}{% endif %}
-                  </div>
-                {% endif %}
-              </div>
-            </a>
-          {%- endfor -%}
-        </div>
-      </div>
-    {% endif %}
-
+  {# Get all research sorted by year (newest first) #}
+  {% set sortedResearch = collections.research | sort(true, true, "data.year") %}
     {# Filter and list section for all research #}
     <div class="card research-list-section">
       <h2>All Research</h2>

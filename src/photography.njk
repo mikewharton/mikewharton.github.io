@@ -2,43 +2,20 @@
 title: "Photography — Mike Wharton"
 layout: layouts/base.njk
 hero_title: "Photography"
-hero_sub: "Selected photos (side project)."
-permalink: /photography.html
+hero_sub: "Occasionally I photograph landscapes, streets, and portraits. I currently use a micro four thirds mirrorless camera, the Lumix G9, most often with a prime 25mm f1.7 lens."
+permalink: /photography/
 ---
 
 <section class="stack">
-  <div class="card">
-    <h2>Selected photos</h2>
-    <p class="lede">
-      Replace the placeholder images in <code>assets/photos/</code> with JPG or WebP files when ready.
-    </p>
-  </div>
-
-  <div class="photo-grid" aria-label="Photography gallery">
-    <div class="photo-tile" data-full="{{ pathPrefix }}assets/photos/photo-01.svg">
-      <img loading="lazy" src="{{ pathPrefix }}assets/photos/photo-01.svg" alt="Photo 1">
-    </div>
-    <div class="photo-tile" data-full="{{ pathPrefix }}assets/photos/photo-02.svg">
-      <img loading="lazy" src="{{ pathPrefix }}assets/photos/photo-02.svg" alt="Photo 2">
-    </div>
-    <div class="photo-tile" data-full="{{ pathPrefix }}assets/photos/photo-03.svg">
-      <img loading="lazy" src="{{ pathPrefix }}assets/photos/photo-03.svg" alt="Photo 3">
-    </div>
-    <div class="photo-tile" data-full="{{ pathPrefix }}assets/photos/photo-04.svg">
-      <img loading="lazy" src="{{ pathPrefix }}assets/photos/photo-04.svg" alt="Photo 4">
-    </div>
-    <div class="photo-tile" data-full="{{ pathPrefix }}assets/photos/photo-05.svg">
-      <img loading="lazy" src="{{ pathPrefix }}assets/photos/photo-05.svg" alt="Photo 5">
-    </div>
-    <div class="photo-tile" data-full="{{ pathPrefix }}assets/photos/photo-06.svg">
-      <img loading="lazy" src="{{ pathPrefix }}assets/photos/photo-06.svg" alt="Photo 6">
-    </div>
-  </div>
-
-  <div class="lightbox" role="dialog" aria-hidden="true">
-    <button class="close" aria-label="Close">✕</button>
-    <div class="lightbox-container">
-      <img src="" alt="">
-    </div>
+  <div class="photo-grid" aria-label="Photo gallery">
+    {% for img in collections.photographyImages | shuffle %}
+      <div class="photo-tile" data-full="{{ pathPrefix }}{{ img.src }}">
+        <img
+          loading="lazy"
+          src="{{ pathPrefix }}{{ img.src }}"
+          alt="{{ img.alt | title }}"
+        >
+      </div>
+    {% endfor %}
   </div>
 </section>

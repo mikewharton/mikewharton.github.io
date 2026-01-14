@@ -2,29 +2,21 @@
 title: "Art — Mike Wharton"
 layout: layouts/base.njk
 hero_title: "Art"
-hero_sub: "Small studies and experiments (side project)."
-permalink: /art.html
+hero_sub: "I primarily work with oil paints and charcoal, but have experience of working with a variety of media including screenprinting."
+permalink: /art/
 ---
 
 <section class="stack">
-  <div class="card">
-    <h2>Selected work</h2>
-    <p class="lede">Deliberately minimal so art stays present but not dominant.</p>
-  </div>
-
   <div class="photo-grid" aria-label="Art gallery">
-    <div class="photo-tile" data-full="{{ pathPrefix }}assets/photos/photo-01.svg">
-      <img loading="lazy" src="{{ pathPrefix }}assets/photos/photo-01.svg" alt="Art item 1">
-    </div>
-    <div class="photo-tile" data-full="{{ pathPrefix }}assets/photos/photo-02.svg">
-      <img loading="lazy" src="{{ pathPrefix }}assets/photos/photo-02.svg" alt="Art item 2">
-    </div>
-    <div class="photo-tile" data-full="{{ pathPrefix }}assets/photos/photo-03.svg">
-      <img loading="lazy" src="{{ pathPrefix }}assets/photos/photo-03.svg" alt="Art item 3">
-    </div>
-    <div class="photo-tile" data-full="{{ pathPrefix }}assets/photos/photo-04.svg">
-      <img loading="lazy" src="{{ pathPrefix }}assets/photos/photo-04.svg" alt="Art item 4">
-    </div>
+    {% for img in collections.artImages %}
+      <div class="photo-tile" data-full="{{ pathPrefix }}{{ img.src }}">
+        <img
+          loading="lazy"
+          src="{{ pathPrefix }}{{ img.src }}"
+          alt="{{ img.alt | title }}"
+        >
+      </div>
+    {% endfor %}
   </div>
 
   <div class="lightbox" role="dialog" aria-hidden="true">
