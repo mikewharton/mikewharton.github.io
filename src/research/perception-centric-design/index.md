@@ -1,5 +1,5 @@
 ---
-title: "Perception-centric design considerations for low-cost haptic emulation in prototypes 2"
+title: "Perception-centric design considerations for low-cost haptic emulation in prototypes"
 kicker: "Published"
 layout: layouts/posts.njk
 year: 2023
@@ -7,7 +7,7 @@ status: "Completed"
 description: "Working with the University of Bristol Design and Manufacturing Futures Laboratory."
 tags: ["research", "haptics", "hci", "prototyping"]
 date: 2023-08-01
-permalink: "/research/perception-centric-design2/"
+permalink: "/research/perception-centric-design/"
 featured: true
 feature_image: "10a.jpg"
 ---
