@@ -170,6 +170,8 @@ body:not([data-page="index"]) #site-main {
     color-mix(in srgb, var(--accent) 10%, transparent),
     transparent
   );
+  background-repeat: no-repeat;
+  background-size: 100% 100vh;
 }
 
 .stack-wrap > .stack {
@@ -1233,14 +1235,11 @@ background:
   transform: rotate(-45deg);
 }
 
-
-
 /* ==========================================================================
    Footer
    ========================================================================== */
 footer {
   width: 100%;
-  margin-top: 3rem;
   padding: 2rem 1rem;
   text-align: center;
   color: var(--muted);
