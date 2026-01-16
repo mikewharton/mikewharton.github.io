@@ -5,7 +5,7 @@ status: "Completed"
 description: "Assessment of a quantum teleportation-based communication protocol."
 keywords: ["project", "quantum", "communication", "information theory"]
 date: 2024-03
-permalink: "/research/quantum-teleportation-protocol/"
+permalink: "/research/quantum-teleportation/"
 feature_image: "12a.jpg"
 ---
 

@@ -3,7 +3,7 @@ title: "Thematic and qualitative analysis of students' perceptions of online lea
 layout: layouts/posts.njk
 status: "Completed"
 description: "Qualitative research using Braun and Clarke thematic analysis."
-keywords: ["project", "education", "qualitative research", "thematic analysis"]
+keywords: ["research", "education", "thematic analysis", "social science"]
 date: 2023-07
 permalink: "/research/online-learning-perceptions/"
 feature_image: "15a.jpg"
