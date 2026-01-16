@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>{{ title | default("Site") }}</title>
+
+  <!-- Favicon and static assets use pathPrefix so project/user pages both work -->
+  <link rel="icon" href="{{ pathPrefix }}favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="{{ pathPrefix }}style.css">
+  <script src="{{ pathPrefix }}script.js" defer></script>
+</head>
+<body{% if permalink == "/index.html" or permalink == "/" %} data-page="index"{% endif %}>
+
+  <pre id="ascii-canvas" class="ascii-bg"></pre>
+  {% include "header.njk" %}
+
+  <main id="site-main">
+    <section class="hero">      
+      <h1 class="hero-title">{{ hero_title | default(title) }}</h1>
+      {% if hero_sub or description %}
+      <p class="hero-sub">
+        {{ hero_sub or description }}
+      </p>
+    {% endif %}
+    </section>
+  <section class="stack-wrap">
+    {{ content | safe }}
+  </section>
+  </main>
+
+  <div class="lightbox" role="dialog" aria-hidden="true">
+    <button class="close" aria-label="Close">✕</button>
+    <button class="prev" aria-label="Previous image"></button>
+    <button class="next" aria-label="Next image"></button>
+
+    <div class="lightbox-container">
+      <img src="" alt="">
+    </div>
+  </div>
+
+  {% include "footer.njk" %}
+</body>
+</html>

@@ -1,0 +1,21 @@
+---
+title: "Art — Mike Wharton"
+layout: layouts/base.njk
+hero_title: "Art"
+hero_sub: "I primarily work with oil paints and charcoal, but have experience of working with a variety of media including screenprinting."
+permalink: /art/
+---
+
+<section class="stack">
+  <div class="photo-grid" aria-label="Art gallery">
+    {% for img in collections.artImages %}
+      <div class="photo-tile" data-full="{{ pathPrefix }}{{ img.src }}">
+        <img
+          loading="lazy"
+          src="{{ pathPrefix }}{{ img.src }}"
+          alt="{{ img.alt | title }}"
+        >
+      </div>
+    {% endfor %}
+  </div>
+</section>

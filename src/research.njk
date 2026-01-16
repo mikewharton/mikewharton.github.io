@@ -1,0 +1,123 @@
+---
+title: "Research — Mike Wharton"
+layout: layouts/base.njk
+hero_title: "Research"
+hero_sub: "Projects, publications and notes."
+permalink: /research/
+---
+
+<section class="stack">
+  <div class="card">
+    {% set allFeatured = collections.featuredResearch or collections.research or [] %}
+    {% set featured = allFeatured .slice(0, 3) %}
+    <div class="research-featured">
+      <h2>Highlighted work</h2>
+      <div class="featured-grid">
+        {%- for project in featured -%}
+          {% set img = project.data.feature_image or project.data.image %}
+          {% set bg = '' %}
+          {% if img %}
+            {% set bg = project.url ~ img %}
+          {% endif %}
+          <div class="featured-tile {% if loop.index0 == 0 %}featured-hero{% else %}featured-small{% endif %}{% if not img %} featured-noimg{% endif %}"
+            aria-label="{{ project.data.title }}"
+            {% if bg %}style="--tile-bg: url('{{ bg }}');"{% endif %}>
+            <div class="featured-inner">
+              {% if project.data.kicker %}<div class="kicker">{{ project.data.kicker }}</div>{% endif %}
+              <h3 class="{% if loop.index0 == 0 %}featured-title-hero{% else %}featured-title{% endif %}">
+                {{ project.data.title }}
+              </h3>
+              <div class="muted small featured-meta">
+                {{ project.data.year or project.date.getFullYear() }}{% if project.data.status %} · {{ project.data.status }}{% endif %}
+              </div>
+              <a class="featured-cta" href="{{ project.url }}">Read more</a>
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+
+  {% if collections.research and collections.research | length > 0 %}
+  {# Get all research sorted by year (newest first) #}
+  {# Sort by date, newest first #}
+  {% set sortedResearch = collections.research | sort(true, false, "date") %}
+    {# Filter and list section for all research #}
+    <div class="card research-list-section">
+      <h2>All Research</h2>
+      {# Get all unique keywords from all research projects #}
+      {% set allKeywords = sortedResearch | getAllKeywords %}
+      
+      {# Filter UI #}
+      {% if allKeywords | length > 0 %}
+        <div class="research-filter">
+          <label for="research-search" class="research-filter-label">Search:</label>
+          <input type="text" id="research-search" class="research-filter-input" placeholder="Search research...">
+          <div class="research-filter-tags">
+            <button class="research-filter-tag active" data-filter="all">All</button>
+            {%- for keyword in allKeywords -%}
+              <button class="research-filter-tag" data-filter="{{ keyword | lower }}">{{ keyword }}</button>
+            {%- endfor -%}
+          </div>
+        </div>
+      {% else %}
+        <div class="research-filter">
+          <label for="research-search" class="research-filter-label">Search:</label>
+          <input type="text" id="research-search" class="research-filter-input" placeholder="Search research...">
+        </div>
+      {% endif %}
+
+      {# Research list #}
+      <ul class="research-list" id="research-list">
+        {%- for project in sortedResearch -%}
+          <li class="research-list-item" 
+              data-keywords="{% if project.data.keywords %}{{ project.data.keywords | join(',') | lower }}{% endif %}"
+              data-title="{{ project.data.title | lower }}"
+              data-description="{% if project.data.description %}{{ project.data.description | lower }}{% endif %}">
+            <a href="{{ project.url }}" class="research-list-link">
+              <div class="research-list-content">
+                <div class="research-list-main">
+                  <span class="research-list-title">{{ project.data.title }}</span>
+                  <span class="research-list-meta">
+                    {{ project.date | date("yyyy") }}
+                    {# !!commented out!! {% if project.data.status %} · {{ project.data.status }}{% endif %}#}
+                    {% if project.data.keywords %}
+                      {% if "project" in project.data.keywords %} · Project{% endif %}
+                      {% if "research" in project.data.keywords %} · Research{% endif %}
+                    {% endif %}
+                  </span>
+
+                </div>
+                {% if project.data.description %}
+                  <p class="research-list-description">{{ project.data.description }}</p>
+                {% endif %}
+              </div>
+            </a>
+            {% if project.data.keywords and project.data.keywords | length > 0 %}
+              <div class="research-list-tags">
+                {%- for keyword in project.data.keywords -%}
+                  <span class="research-tag research-tag-small">{{ keyword }}</span>
+                {%- endfor -%}
+              </div>
+            {% endif %}
+          </li>
+        {%- endfor -%}
+      </ul>
+
+      <p class="research-no-results" id="research-no-results" style="display: none;">No research projects found matching your filters.</p>
+    </div>
+  {% else %}
+    <div class="card">
+      <p>No research projects found. Place Markdown files in <code>src/research/</code>.</p>
+    </div>
+  {% endif %}
+
+  <div class="card">
+    <h2>Links</h2>
+    <p class="card-links">
+      <a href="{{ site.gScholar }}">Google Scholar</a> ·
+      <a href="{{ site.orcid }}">ORCID</a> ·
+      <a href="{{ site.github }}">GitHub</a>
+    </p>
+  </div>
+</section>

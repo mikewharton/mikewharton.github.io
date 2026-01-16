@@ -1,17 +1,11 @@
 {
-  "name": "starter",
-  "description": "Include Bootstrap CSS and JS via the jsDelivr CDN.",
-  "version": "0.0.0",
+  "name": "mw-site",
   "private": true,
-  "repository": "twbs/examples",
-  "license": "MIT",
-  "stackblitz": {
-    "startCommand": "npm start"
-  },
   "scripts": {
-    "start": "sirv --dev --no-clear --port 3000"
+    "dev": "eleventy --serve",
+    "build": "eleventy --config .eleventy.js"
   },
   "devDependencies": {
-    "sirv-cli": "^2.0.2"
+    "@11ty/eleventy": "^2.0.0"
   }
 }

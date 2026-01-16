@@ -1,0 +1,102 @@
+---
+title: "Blog — Mike Wharton"
+layout: layouts/base.njk
+hero_title: "Blog"
+hero_sub: "Updates, notes and longer posts."
+permalink: false
+eleventyExcludeFromCollections: true
+---
+
+<section class="stack">
+  {% if collections.posts and collections.posts | length > 0 %}
+    {# Get all posts sorted by date (newest first) #}
+    {% set sortedPosts = collections.posts | sort(true, true, "date") %}
+    {% set recentPosts = sortedPosts | slice(0, 3) %}
+    {% set olderPosts = sortedPosts | slice(3) %}
+
+    {# Featured recent posts as big cards #}
+    {% if recentPosts | length > 0 %}
+      <div class="blog-featured">
+        <h2 class="section-title">Recent Posts</h2>
+        <div class="blog-featured-grid">
+          {%- for post in recentPosts -%}
+            <article class="blog-card" data-keywords="{% if post.data.keywords %}{{ post.data.keywords | join(',') | lower }}{% endif %}">
+              <a href="{{ post.url }}" class="blog-card-link">
+                <div class="blog-card-content">
+                  <h3 class="blog-card-title">{{ post.data.title | default(post.fileSlug) }}</h3>
+                  <p class="blog-card-date">{{ post.date | date("d MMMM yyyy") }}</p>
+                  {% if post.data.description %}
+                    <p class="blog-card-description">{{ post.data.description }}</p>
+                  {% endif %}
+                  {% if post.data.keywords and post.data.keywords | length > 0 %}
+                    <div class="blog-card-tags">
+                      {%- for keyword in post.data.keywords -%}
+                        <span class="blog-tag">{{ keyword }}</span>
+                      {%- endfor -%}
+                    </div>
+                  {% endif %}
+                </div>
+              </a>
+            </article>
+          {%- endfor -%}
+        </div>
+      </div>
+    {% endif %}
+
+    {# Filter and list section for all posts #}
+    <div class="card blog-list-section">
+      <h2>All Posts</h2>
+      
+      {# Get all unique keywords from all posts #}
+      {% set allKeywords = sortedPosts | getAllKeywords %}
+
+      {# Filter UI #}
+      {% if allKeywords | length > 0 %}
+        <div class="blog-filter">
+          <label for="blog-search" class="blog-filter-label">Search:</label>
+          <input type="text" id="blog-search" class="blog-filter-input" placeholder="Search posts...">
+          
+          <div class="blog-filter-tags">
+            <button class="blog-filter-tag active" data-filter="all">All</button>
+            {%- for keyword in allKeywords -%}
+              <button class="blog-filter-tag" data-filter="{{ keyword | lower }}">{{ keyword }}</button>
+            {%- endfor -%}
+          </div>
+        </div>
+      {% else %}
+        <div class="blog-filter">
+          <label for="blog-search" class="blog-filter-label">Search:</label>
+          <input type="text" id="blog-search" class="blog-filter-input" placeholder="Search posts...">
+        </div>
+      {% endif %}
+
+      {# Posts list #}
+      <ul class="blog-list" id="blog-list">
+        {%- for post in sortedPosts -%}
+          <li class="blog-list-item" 
+              data-keywords="{% if post.data.keywords %}{{ post.data.keywords | join(',') | lower }}{% endif %}"
+              data-title="{{ post.data.title | default(post.fileSlug) | lower }}"
+              data-description="{% if post.data.description %}{{ post.data.description | lower }}{% endif %}">
+            <a href="{{ post.url }}" class="blog-list-link">
+              <span class="blog-list-title">{{ post.data.title | default(post.fileSlug) }}</span>
+              <span class="blog-list-date">{{ post.date | date("d MMM yyyy") }}</span>
+            </a>
+            {% if post.data.keywords and post.data.keywords | length > 0 %}
+              <div class="blog-list-tags">
+                {%- for keyword in post.data.keywords -%}
+                  <span class="blog-tag blog-tag-small">{{ keyword }}</span>
+                {%- endfor -%}
+              </div>
+            {% endif %}
+          </li>
+        {%- endfor -%}
+      </ul>
+
+      <p class="blog-no-results" id="blog-no-results" style="display: none;">No posts found matching your filters.</p>
+    </div>
+  {% else %}
+    <div class="card">
+      <p>No posts found. Place Markdown files in <code>src/posts/</code> (or update your collections in <code>.eleventy.js</code>).</p>
+    </div>
+  {% endif %}
+</section>

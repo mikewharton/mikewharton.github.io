@@ -1,0 +1,110 @@
+---
+title: "Mike Wharton — Home"
+layout: layouts/base-landing.njk
+hero_title: "Hello there"
+hero_sub: "This website is a collection of my work."
+permalink: /
+---
+
+<section class="stack">
+  <div class="card intro-card">
+    {# Replace with a real portrait if you want (optional) #}
+    <img
+      class="intro-portrait"
+      src="{{ pathPrefix }}assets/photos/index/me.jpg"
+      alt="Headshot"
+      width="120"
+      height="120">
+
+    <div class="intro-text">
+      <p>
+        I'm a DPhil student at the University of Oxford on the <a href="https://aims.robots.ox.ac.uk/">Autonomous 
+        Intelligent Machines and Systems</a> programme.
+      </p>
+      <p>
+        For any queries contact <a href="#" id="email-link" data-email="{{ site.emailObfuscated }}"><span id="email-text">{{ site.emailObfuscated }}</span></a>
+      </p>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <h2>Research and projects</h2>
+      <p>A meandering overview of all my meaningful projects to date.</p>
+      <p class="card-links">
+        <a href="{{ pathPrefix }}research">See More</a> ·
+        <a href="{{ site.gScholar }}">Google Scholar</a> ·
+        <a href="{{ site.orcid }}">ORCID</a>
+      </p>
+    </div>
+
+    <!-- <div class="card">
+      <h2>Latest</h2>
+      <p>Updates and longer posts live in the blog.</p>
+      <p style="margin-top:.75rem;">
+        <a href="{{ pathPrefix }}blog.html">Open the blog</a>
+      </p>
+    </div> -->
+
+  </div>
+
+  {% set anns = announcements or [] %}
+  {% set total = anns | length %}
+
+  <div class="grid-2">
+    <div class="card">
+      <h2>Announcements</h2>
+
+      {% if total > 0 %}
+        <div class="announcements-nav">
+          <button type="button" id="announcements-newer" aria-label="Newer announcements">Newer</button>
+        </div>
+
+        <ul class="announcements-list" id="announcements-list">
+          {# newest first #}
+          {% set sorted = anns | sort(attribute="date") | reverse %}
+          {% for ann in sorted %}
+            <li class="announcement-item" data-announcement>
+              <div class="announce-title">{{ ann.title }}</div>
+              <small class="muted">{{ ann.date | date("d MMM yyyy") }}</small>
+            </li>
+          {% endfor %}
+        </ul>
+
+        <div class="announcements-nav">
+          <button type="button" id="announcements-older" aria-label="Older announcements">Older</button>
+        </div>
+      {% else %}
+        <p class="muted small">No announcements.</p>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="side-grid">
+    <div class="side-tile">
+      <h3>Music</h3>
+      <p>Experience playing in orchestras and ensembles.</p>
+      <p style="margin-top:.6rem;">
+        <a href="{{ pathPrefix }}music">Browse music</a>
+      </p>
+    </div>
+
+    <div class="side-tile">
+      <h3>Art</h3>
+      <p>Mostly oil paints and charcoal with some mixed media work.</p>
+      <p style="margin-top:.6rem;">
+        <a href="{{ pathPrefix }}art">Browse art</a>
+      </p>
+    </div>
+
+    <div class="side-tile">
+      <h3>Photography</h3>
+      <p>Landscapes, streets, and portraits.</p>
+      <p style="margin-top:.6rem;">
+        <a href="{{ pathPrefix }}photography">Browse photography</a>
+      </p>
+    </div>
+  </div>
+
+</section>
+
