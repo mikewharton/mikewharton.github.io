@@ -304,6 +304,7 @@ background:
   .brand-full {
     display: none;
   }
+
   .brand-short {
     display: inline;
   }
@@ -554,6 +555,13 @@ background:
     overscroll-behavior: contain;
     -webkit-overflow-scrolling: touch;
   }
+
+  .nav-list.show::after {
+    content: "";
+    display: block;
+    height: 1.2rem;
+  }
+
 
   @media (prefers-color-scheme: dark) {
     .nav-list {
