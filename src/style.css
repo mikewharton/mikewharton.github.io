@@ -34,7 +34,7 @@
   --muted: rgba(11, 11, 11, 0.65);
   --glass-border: rgba(255, 255, 255, 0.35);
   --glass-shadow: 0 6px 18px rgba(10, 10, 10, 0.06);
-  --accent: #0a66c2;
+  --accent: rgba(10, 102, 194, 1);
   --max-width: 84ch;
 
   /* used for mobile menu positioning */
@@ -109,11 +109,21 @@ a {
   text-decoration: none;
   font-family: var(--mono);
 }
+
 a:hover {
   text-decoration: underline;
 }
+
 code {
   font-size: 0.95em;
+}
+
+/* .post {
+  max-width
+} */
+
+.post a{
+  font-family: var(--serif);
 }
 
 /* ==========================================================================
@@ -141,10 +151,29 @@ body:not([data-page="index"]) #site-main {
 
 /* Layout primitives */
 .stack {
+  max-width: var(--max-width);
+  margin-inline: auto;
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+
+.stack-wrap {
+  /* padding-top: 1.5rem; */
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--accent) 10%, transparent),
+    transparent
+  );
+}
+
+.stack-wrap > .stack {
+  padding-top: 1.5rem;
 }
 
 /* 
@@ -743,7 +772,7 @@ background:
    ========================================================================== */
 .hero {
   text-align: center;
-  margin-bottom: 3.25rem;
+  margin-bottom: 2.3rem;
   padding-top: 1rem;
 }
 
@@ -1219,7 +1248,11 @@ footer .footer-inner {
    ========================================================================== */
 .post,
 .post-page {
-  max-width: 66ch;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  /* max-width: 66ch; */
   margin: 0 auto;
   padding: 0.6rem;
 }
@@ -1661,6 +1694,7 @@ footer .footer-inner {
   font-size: 0.8rem;
   color: var(--text);
   white-space: nowrap;
+  font-family: var(--mono);
 }
 
 .research-tag-small {
@@ -1717,6 +1751,10 @@ body:not([data-page="index"]) .ascii-bg#ascii-canvas {
   will-change: opacity;
 }
 
+body:not([data-page="index"]) #ascii-canvas {
+  opacity: 0.55;
+}
+
 .ascii-bg::after {
   content: "";
   position: fixed;
@@ -1736,6 +1774,9 @@ body:not([data-page="index"]) .ascii-bg#ascii-canvas {
   position: fixed;
   inset: 0;
   margin: 0;
+  pointer-events: none;
+  z-index: 0;
+  padding: 0;
   white-space: pre;
   font-family: var(--mono);
   font-size: 10px;

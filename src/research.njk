@@ -20,7 +20,7 @@ permalink: /research/
           {% set img = project.data.feature_image or project.data.image %}
           {% set bg = '' %}
           {% if img %}
-            {% set bg = pathPrefix ~ 'assets/photos/research/' ~ img %}
+            {% set bg = project.url ~ img %}
           {% endif %}
           
           <div
@@ -35,8 +35,9 @@ permalink: /research/
               </h3>
 
               <div class="muted small featured-meta">
-                {{ project.data.year }}{% if project.data.status %} · {{ project.data.status }}{% endif %}
+                {{ project.data.year or project.date.getFullYear() }}{% if project.data.status %} · {{ project.data.status }}{% endif %}
               </div>
+
 
               <a class="featured-cta" href="{{ project.url }}">Read more</a>
             </div>
@@ -48,7 +49,8 @@ permalink: /research/
 
   {% if collections.research and collections.research | length > 0 %}
   {# Get all research sorted by year (newest first) #}
-  {% set sortedResearch = collections.research | sort(true, true, "data.year") %}
+  {# Sort by date, newest first #}
+  {% set sortedResearch = collections.research | sort(true, false, "date") %}
     {# Filter and list section for all research #}
     <div class="card research-list-section">
       <h2>All Research</h2>
@@ -87,13 +89,15 @@ permalink: /research/
               <div class="research-list-content">
                 <div class="research-list-main">
                   <span class="research-list-title">{{ project.data.title }}</span>
-                  {% if project.data.year or project.data.status %}
-                    <span class="research-list-meta">
-                      {% if project.data.year %}{{ project.data.year }}{% endif %}
-                      {% if project.data.year and project.data.status %} · {% endif %}
-                      {% if project.data.status %}{{ project.data.status }}{% endif %}
-                    </span>
-                  {% endif %}
+                  <span class="research-list-meta">
+                    {{ project.date | date("yyyy") }}
+                    {# !!commented out!! {% if project.data.status %} · {{ project.data.status }}{% endif %}#}
+                    {% if project.data.keywords %}
+                      {% if "project" in project.data.keywords %} · Project{% endif %}
+                      {% if "research" in project.data.keywords %} · Research{% endif %}
+                    {% endif %}
+                  </span>
+
                 </div>
                 {% if project.data.description %}
                   <p class="research-list-description">{{ project.data.description }}</p>

@@ -1,12 +1,11 @@
 ---
 title: "Perception-centric design considerations for low-cost haptic emulation in prototypes"
-kicker: "Published"
+kicker: "Conference Paper"
 layout: layouts/posts.njk
-year: 2023
 status: "Completed"
 description: "Working with the University of Bristol Design and Manufacturing Futures Laboratory."
-tags: ["research", "haptics", "hci", "prototyping"]
-date: 2023-08-01
+keywords: ["research", "haptics", "arduino", "hci", "prototyping", "dynamics", "low-cost sensors"]
+date: 2024-03
 permalink: "/research/perception-centric-design/"
 featured: true
 feature_image: "10a.jpg"
@@ -20,7 +19,7 @@ Repositories containing my code for the Arduino-based
 [touch sensor](https://github.com/DMFDML/touch-sensor)
 and the
 [haptics demo](https://github.com/DMFDML/haptics-demo)
-—which involved a model rendered in the Unity game engine and experienced in VR, linked in real time to the actuator embedded in the prototype—can be found on the DMF Design and Manufacturing Laboratory GitHub page.
+which involved a model rendered in the Unity game engine and experienced in VR, linked in real time to the actuator embedded in the prototype—can be found on the DMF Design and Manufacturing Laboratory GitHub page.
 
 During the project, I developed an interest in Human–Computer Interaction (HCI), particularly the psychology and physiology underpinning these interactions. I carried out a thorough review of existing literature, both contemporary and historical, with a focus on human sensory systems. These systems are fundamental to understanding everyday interaction and are likely to play an important role in future bio-inspired design approaches.
 

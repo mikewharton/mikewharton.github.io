@@ -174,6 +174,7 @@ module.exports = function (eleventyConfig) {
     return [...keywords].sort();
   });
 
+
   // Shuffle an array (non-mutating, build-time)
   eleventyConfig.addFilter("shuffle", (array) => {
     if (!Array.isArray(array)) return [];

@@ -11,19 +11,22 @@
   <script src="{{ pathPrefix }}script.js" defer></script>
 </head>
 <body{% if permalink == "/index.html" or permalink == "/" %} data-page="index"{% endif %}>
-  <pre id="ascii-canvas" class="ascii-bg"></pre>
 
+  <pre id="ascii-canvas" class="ascii-bg"></pre>
   {% include "header.njk" %}
 
   <main id="site-main">
-    <section class="hero">
+    <section class="hero">      
       <h1 class="hero-title">{{ hero_title | default(title) }}</h1>
-      {% if hero_sub %}
-        <p class="hero-sub">{{ hero_sub }}</p>
-      {% endif %}
+      {% if hero_sub or description %}
+      <p class="hero-sub">
+        {{ hero_sub or description }}
+      </p>
+    {% endif %}
     </section>
-
+  <section class="stack-wrap">
     {{ content | safe }}
+  </section>
   </main>
 
   <div class="lightbox" role="dialog" aria-hidden="true">
