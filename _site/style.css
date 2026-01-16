@@ -96,7 +96,7 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: var(--mono);
+  font-family: var(--serif);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.6;
@@ -107,6 +107,7 @@ body {
 a {
   color: var(--accent);
   text-decoration: none;
+  font-family: var(--mono);
 }
 a:hover {
   text-decoration: underline;
@@ -318,7 +319,7 @@ background:
   padding: 0.25rem 0.35rem;
   border-radius: 6px;
   cursor: pointer;
-  font-family: inherit;
+  font-family: var(--mono);
   font-size: inherit;
   display: inline-block;
   position: relative;
@@ -758,7 +759,7 @@ background:
   font-size: 1.05rem;
   margin: 0.4rem 0 1.2rem;
   color: var(--muted);
-  font-family: --serif;
+  font-family: var(--serif);
 }
 
 /* ==========================================================================
@@ -770,7 +771,7 @@ background:
   background: var(--card-bg);
   box-shadow: 0 4px 14px rgba(10, 10, 10, 0.04);
   border: 1px solid var(--glass-border);
-  font-family: --serif;
+  font-family: var(--serif);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -789,6 +790,13 @@ background:
 .card p {
   margin: 0.4rem 0 0;
 }
+
+.card-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
 
 /* ==========================================================================
    Profile / Intro (index)
@@ -1803,6 +1811,7 @@ body:not([data-page="index"]) #ascii-canvas {
   cursor: pointer;
   color: var(--accent);
   font-size: 0.85rem;
+  font-family: var(--mono);
   user-select: none;
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none; /* old Edge */
@@ -1890,7 +1899,7 @@ body:not([data-page="index"]) #ascii-canvas {
   color: var(--text);
 }
 
-Hover/focus states
+/* Hover/focus states */
 .featured-tile:hover,
 .featured-tile:focus-visible{
   transform: scale(1.01);
