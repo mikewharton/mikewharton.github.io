@@ -692,7 +692,7 @@
       asciiCanvas.textContent = output;
     }
     
-    // Animation loop - pause during scroll to prevent "following" effect
+    // Animation loop
     let lastAnimTime = 0;
     let isScrolling = false;
     let scrollTimeout = null;
@@ -709,7 +709,7 @@
       requestAnimationFrame(animate);
     }
     
-    // Detect scrolling and pause animation
+    // Detect scrolling
     let lastScrollY = window.scrollY;
     function handleScroll() {
       const currentScrollY = window.scrollY;
@@ -727,7 +727,7 @@
       // Clear existing timeout
       if (scrollTimeout) clearTimeout(scrollTimeout);
       
-      // Resume animation after scrolling stops
+      // Resume animation
       scrollTimeout = setTimeout(() => {
         isScrolling = false;
         // Restore animTime from where we froze it
