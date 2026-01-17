@@ -1,5 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
-  <rect width="128" height="128" rx="24" fill="#ffffff"/>
-  <rect x="10" y="10" width="108" height="108" rx="20" fill="#0b0b0b" opacity="0.06"/>
-  <text x="64" y="78" text-anchor="middle" font-family="Playfair Display, Georgia, serif" font-weight="900" font-size="58" fill="#0b0b0b">MW</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64"> <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" font-size="52" font-family="monospace">@</text> </svg>
