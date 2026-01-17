@@ -32,7 +32,7 @@
   --bg: #ffffff;
   --text: #0b0b0b;
   --muted: rgba(11, 11, 11, 0.65);
-  --glass-border: rgba(255, 255, 255, 0.35);
+  --glass-border: rgba(0, 0, 0, 0.12);
   --glass-shadow: 0 6px 18px rgba(10, 10, 10, 0.06);
   --accent: rgba(10, 102, 194, 1);
   --max-width: 84ch;
@@ -55,8 +55,8 @@
   /* card and tile backgrounds */
   --card-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(255, 255, 255, 0.74));
   --tile-bg: rgba(255, 255, 255, 0.6);
-  --hover-bg: rgba(0, 0, 0, 0.03);
-  --hover-bg-strong: rgba(0, 0, 0, 0.05);
+  --hover-bg: rgba(0, 0, 0, 0.06);
+  --hover-bg-strong: rgba(0, 0, 0, 0.06);
 }
 
 /* Set default opacity for non-index pages - more visible */
@@ -167,7 +167,7 @@ body:not([data-page="index"]) #site-main {
 
   background: linear-gradient(
     180deg,
-    color-mix(in srgb, var(--accent) 10%, transparent),
+    color-mix(in srgb, var(--muted) 10%, transparent),
     transparent
   );
   background-repeat: no-repeat;
@@ -175,6 +175,20 @@ body:not([data-page="index"]) #site-main {
 
   padding-inline: 1rem;
 }
+
+@media (prefers-color-scheme: light){
+  .stack-wrap{
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--muted) 18%, transparent),
+      color-mix(in srgb, var(--muted) 6%, transparent),
+      transparent
+    );
+    background-repeat: no-repeat;
+    background-size: 100% min(100%, 100vh);
+  }
+}
+
 
 .stack-wrap > .stack {
   padding-top: 1.5rem;
@@ -1071,12 +1085,12 @@ background:
   font-family: var(--serif);
   font-weight: 700;
   font-size: 0.95rem;
-  color: var(--muted);
+  color: var(--text);
 }
 
 .side-tile p {
   margin: 0;
-  color: var(--muted);
+  color: var(--text);
   font-size: 0.9rem;
 }
 
