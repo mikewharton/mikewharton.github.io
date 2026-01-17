@@ -171,7 +171,9 @@ body:not([data-page="index"]) #site-main {
     transparent
   );
   background-repeat: no-repeat;
-  background-size: 100% 100vh;
+  background-size: 100% min(100%, 100vh);
+
+  padding-inline: 1rem;
 }
 
 .stack-wrap > .stack {
@@ -916,6 +918,10 @@ background:
   .intro-text {
     flex: 1;
     min-width: 0;
+  }
+
+  .stack-wrap {
+    padding-inline: 0;
   }
 }
 
