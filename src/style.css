@@ -1793,7 +1793,8 @@ body:not([data-page="index"]) #ascii-canvas {
   padding: 0;
   white-space: pre;
   font-family: var(--mono);
-  font-size: 10px;
+  /* font-size: 10px; */
+  font-size: clamp(6px, 1.2vw, 10px);
   line-height: 1;
   overflow: hidden;
   color: rgba(11, 11, 11, 0.08);

@@ -516,7 +516,11 @@
     }
     
     // Lightweight config - using a repeating pattern for performance
-    const PALETTE = ".: -=+*#%@";
+    // const PALETTE = ".: -=+*#%@";
+    const isMobile = window.matchMedia('(max-width: 600px)').matches;
+    const blobsCount = isMobile ? 3 : 4;
+    const PALETTE = isMobile ? " .*#" : ".:-=+*#%@";
+
     
     // Measure actual character dimensions
     function measureCharSize() {
@@ -540,6 +544,11 @@
         const fontSize = parseFloat(getComputedStyle(asciiCanvas).fontSize) || 10;
         width = fontSize * 0.6; // Approximate character width (monospace is usually ~60% of height)
         height = fontSize;
+      }
+
+      if (isMobile) {
+        height *= 0.85;
+        width *= 0.85;
       }
       
       return { width, height };
@@ -573,11 +582,11 @@
     let animating = true;
     
     // Check if screen is narrow (mobile)
-    const isNarrow = () => cols < 60;
+    const isNarrow = () => isMobile;
     
     // Lava lamp blobs - lightweight with fixed number of blobs
     // Use more blobs on narrow screens for better coverage
-    const getNumBlobs = () => isNarrow() ? 6 : 4;
+    const getNumBlobs = () => isNarrow() ? 2 : 4;
     const blobs = [];
     
     // Initialize blobs with positions that ensure center activity
@@ -692,15 +701,7 @@
     
     function animate(now) {
       if (!animating) return;
-      
-      // Completely freeze animation during active scrolling
-      if (isScrolling) {
-        // Don't update animTime, don't render - keep frozen
-        requestAnimationFrame(animate);
-        return;
-      }
-      
-      // Normal animation when not scrolling
+
       if (lastAnimTime === 0) lastAnimTime = now;
       animTime += (now - lastAnimTime) * ANIM_SPEED;
       lastAnimTime = now;
@@ -817,7 +818,6 @@
     // Handle scroll for both opacity and animation pause
     window.addEventListener('scroll', () => {
       updateAsciiOpacity();
-      handleScroll();
     }, { passive: true });
     
     // Set initial height for non-index pages
@@ -862,39 +862,12 @@
       }
     }
     
-    // Start animation after a brief delay to ensure layout is ready
-    // This is especially important for non-index pages and mobile devices
-    setTimeout(initializeAndStart, 50);
-    
-    // Also retry on window load (for mobile where fonts might load late)
-    if (document.readyState === 'loading') {
-      window.addEventListener('load', () => {
-        setTimeout(initializeAndStart, 100);
-      });
+        if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initializeAndStart, { once: true });
     } else {
-      // Already loaded, try again after a short delay
-      setTimeout(initializeAndStart, 150);
+      initializeAndStart();
     }
-    
-    // For index page, also try to start immediately if dimensions are already valid
-    if (isIndexPage) {
-      // Quick check - if we can get dimensions immediately, start right away
-      const quickSize = getGridSize();
-      if (quickSize.cols > 0 && quickSize.rows > 0 && CHAR_W > 0 && CHAR_H > 0) {
-        cols = quickSize.cols;
-        rows = quickSize.rows;
-        initializeBlobs();
-        render();
-        animating = true;
-        requestAnimationFrame(animate);
-      }
-    }
-    
-    // Pause animation when tab is hidden (performance)
-    document.addEventListener('visibilitychange', () => {
-      animating = !document.hidden;
-      if (animating) requestAnimationFrame(animate);
-    });
+
   }
 
   /* ---------- Email obfuscation ---------- */
