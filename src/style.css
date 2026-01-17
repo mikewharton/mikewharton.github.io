@@ -1928,13 +1928,17 @@ body:not([data-page="index"]) #ascii-canvas {
   transform: translateZ(0);
   background: none;
   transition: transform .45s ease, filter .45s ease, border-color .45s ease;
+  isolation: isolate; /* ensures pseudo-elements are clipped exactly */
 }
 
 /* Dark overlay + soft-light style blend */
 .featured-tile::before{
   content:"";
   position:absolute;
-  inset:0;
+  top:-1px;
+  right:-1px;
+  bottom:-1px;
+  left:-1px;
   background: rgba(0,0,0,0.55);
   transition: background .45s ease;
   z-index: 1;
@@ -1944,7 +1948,10 @@ body:not([data-page="index"]) #ascii-canvas {
 .featured-tile::after{
   content:"";
   position:absolute;
-  inset: 0;
+  top:-1px;
+  right:-1px;
+  bottom:-1px;
+  left:-1px;
   background:
     linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.55)),
     var(--tile-bg, radial-gradient(1200px 600px at 20% 10%, rgba(90,176,247,0.18), transparent 55%));
@@ -2028,3 +2035,52 @@ body:not([data-page="index"]) #ascii-canvas {
     linear-gradient(180deg, rgba(0,0,0,0.30), rgba(0,0,0,0.55));
 }
 .featured-noimg::after{ opacity: 0; } /* don’t “zoom” a gradient */
+
+/* ==========================================================================
+   Highlighted work – light mode overrides
+   ========================================================================== */
+
+@media (prefers-color-scheme: light){
+
+  /* Lighter image treatment */
+  .featured-tile::before{
+    background: rgba(255,255,255,0.45);
+  }
+
+  .featured-tile::after{
+    background:
+      linear-gradient(
+        180deg,
+        rgba(255,255,255,0.65),
+        rgba(255,255,255,0.35)
+      ),
+      var(--tile-bg);
+    opacity: 1;
+    background-image: var(--tile-bg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 1;
+  }
+
+  /* Dark text on light images */
+  .featured-inner{
+    color: #0b0b0b;
+  }
+
+  .featured-meta{
+    color: rgba(11,11,11,0.65);
+  }
+
+  .featured-cta{
+    background: rgba(255,255,255,0.85);
+    color: #0b0b0b;
+    border-color: rgba(0,0,0,0.15);
+  }
+
+  /* Hover refinement */
+  .featured-tile:hover::before,
+  .featured-tile:focus-visible::before{
+    background: rgba(255,255,255,0.30);
+  }
+}
