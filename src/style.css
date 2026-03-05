@@ -107,7 +107,7 @@ body {
 a {
   color: var(--accent);
   text-decoration: none;
-  font-family: var(--mono);
+  font-family: var(--serif);
 }
 
 a:hover {
@@ -346,6 +346,7 @@ background:
   padding: 0.25rem 0.35rem;
   border-radius: 6px;
   display: inline-block;
+  font-family: var(--mono);
 }
 
 .nav-list a:hover,
